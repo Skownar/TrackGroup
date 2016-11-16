@@ -17,7 +17,7 @@ public class groupeDAO implements DAO<Groupe> {
 
     @Override
     public boolean delete() {
-        return false;
+        return true;
     }
 
     @Override
