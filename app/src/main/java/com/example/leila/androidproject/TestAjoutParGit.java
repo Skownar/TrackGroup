@@ -8,5 +8,7 @@ public class TestAjoutParGit {
 
     private void testmethod(){
         String h = "";
+        h = "oklol";
     }
+
 }
