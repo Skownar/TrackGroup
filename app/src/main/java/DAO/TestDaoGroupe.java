@@ -2,6 +2,7 @@ package DAO;
 
 import com.example.leila.androidproject.Groupe;
 
+import java.nio.channels.Pipe;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,7 @@ public class TestDaoGroupe {
             System.out.println(g.toString());
         }
         Groupe g = new Groupe(0,"Motocyclette",21);
-        groupeDAO.create(g);
+        int id_groupe = groupeDAO.create(g);
+        System.out.println("Le nouveau groupe port l'id : " + id_groupe);
     }
 }

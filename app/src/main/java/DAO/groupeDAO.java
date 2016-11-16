@@ -73,7 +73,7 @@ public class GroupeDAO implements DAO<Groupe> {
 
     @Override
     public int create(Groupe groupe) {
-
+        int id_groupe = 0;
         System.out.println("--- Create group method ---");
         json = "";
         try{
@@ -89,8 +89,11 @@ public class GroupeDAO implements DAO<Groupe> {
         if(status >= 400){
             System.err.println("erreur status " + status);
             System.err.println(header.getFirst("Error-Reason"));
+        }else{
+            System.out.println("Paramètre retourné : " + header.getFirst("id_groupe"));
+            System.out.println("Ajout effecuté avec succès ! easy frère");
         }
-        return 0;
+        return id_groupe;
     }
 
     @Override
