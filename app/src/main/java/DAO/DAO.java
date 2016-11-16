@@ -13,6 +13,10 @@ import javax.ws.rs.core.UriBuilder;
 
 /**
  * Created by lafer on 16-11-16.
+ *
+ * @param T : Classe
+ *
+ *        Interface à implémenter pour chaque classe métier
  */
 
 public interface DAO<T> {

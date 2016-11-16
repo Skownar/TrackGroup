@@ -1,6 +1,8 @@
 package DAO;
 
-import DAO.GroupeDAO;
+import com.example.leila.androidproject.Groupe;
+
+import java.util.ArrayList;
 
 /**
  * Created by lafer on 16-11-16.
@@ -9,5 +11,10 @@ import DAO.GroupeDAO;
 public class TestDaoGroupe {
     public static void main(String[] args) {
         GroupeDAO groupeDAO = new GroupeDAO();
+        ArrayList<Groupe> al = new ArrayList<>();
+        al = groupeDAO.readAll();
+        for (Groupe g : al){
+            System.out.println(g.toString());
+        }
     }
 }
