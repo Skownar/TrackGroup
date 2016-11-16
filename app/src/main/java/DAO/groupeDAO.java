@@ -1,5 +1,7 @@
 package DAO;
 
+import android.net.Uri;
+
 import com.example.leila.androidproject.Groupe;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -13,22 +15,20 @@ import javax.ws.rs.core.UriBuilder;
  * Created by lafer on 16-11-16.
  */
 
-public class groupeDAO implements DAO<Groupe> {
+public class GroupeDAO implements DAO<Groupe> {
     Client c;
     URI uri;
     WebResource service;
-    ArrayList<Groupe> al;
-    public groupeDAO() {
-        c = new Client();
-        uri = UriBuilder.fromUri("test").build();
+    public GroupeDAO(){
+        System.out.println("-- new GROUPEDAO --");
+        c = Client.create();
+        uri = UriBuilder.fromUri("https://apex.oracle.com/pls/apex/locagroup").build();
         service = c.resource(uri);
-        al = new ArrayList<>();
     }
 
     @Override
     public ArrayList<Groupe> readAll() {
-        String hello = "";
-        String bobo = "";
+
         return null;
     }
 
