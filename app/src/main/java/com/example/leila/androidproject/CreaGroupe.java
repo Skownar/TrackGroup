@@ -9,6 +9,7 @@ public class CreaGroupe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_groupe);
+
     }
 
 

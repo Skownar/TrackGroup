@@ -21,7 +21,7 @@
         android:inputType="textPersonName"
         android:text="Name"
         android:ems="10"
-        android:id="@+id/nomGroupe" />
+        android:id="@+id/inputnomGroupe" />
 
     <Button
         android:text="@string/btnCreaGroupe"
