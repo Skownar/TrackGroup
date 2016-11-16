@@ -5,12 +5,14 @@ import android.net.Uri;
 import com.example.leila.androidproject.Groupe;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.PropertyResourceBundle;
 
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriBuilder;
 
 /**
@@ -26,7 +28,9 @@ public class GroupeDAO implements DAO<Groupe> {
     private URI uri;
     private WebResource service;
     private Gson gson;
-
+    private String json;
+    private ClientResponse response;
+    private int status;
     public GroupeDAO() {
 
         System.out.println("-- new GROUPEDAO --");
@@ -46,7 +50,7 @@ public class GroupeDAO implements DAO<Groupe> {
         System.out.println("---  read all groups method  ---");
         ListeGroupe listeGroupe = new ListeGroupe();
         try {
-            String listeJson = service.path("gestionGroupe").path("groupeinfo").get(String.class);
+            String listeJson = service.path("gestionGroupe").path("groupeinfo/").get(String.class);
             listeGroupe = gson.fromJson(listeJson, ListeGroupe.class);
         } catch (Exception e) {
             System.err.println(e);
@@ -68,7 +72,24 @@ public class GroupeDAO implements DAO<Groupe> {
     }
 
     @Override
-    public int create() {
+    public int create(Groupe groupe) {
+
+        System.out.println("--- Create group method ---");
+        json = "";
+        try{
+            json = gson.toJson(groupe);
+            System.out.println("Object to json = " + json);
+        }catch (Exception e){
+            System.err.println("convertion json failed "+ e);
+        }
+        response = service.path("gestionGroupe").path("creaGroupe/").type("application/json").post(ClientResponse.class,json);
+       // System.out.println(service.path("gestionGroupe").path("creaGroupe"));
+        int status = response.getStatus();
+        MultivaluedMap header = response.getHeaders();
+        if(status >= 400){
+            System.err.println("erreur status " + status);
+            System.err.println(header.getFirst("Error-Reason"));
+        }
         return 0;
     }
 

@@ -22,7 +22,7 @@ import javax.ws.rs.core.UriBuilder;
 public interface DAO<T> {
     ArrayList<T> readAll();
     T readById();
-    int create();
+    int create(T obj);
     boolean delete();
     boolean update();
 }

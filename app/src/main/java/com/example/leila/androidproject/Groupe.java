@@ -17,8 +17,11 @@ public class Groupe {
         this.id_admin=id_admin;
     }
 
-    public Groupe(int id_groupe, String nom_groupe) {
-        this.id_groupe = id_groupe;
+    public Groupe(String nom_groupe,int id_admin) {
+        this.id_admin = id_admin;
+        this.nom = nom_groupe;
+    }
+    public Groupe(String nom_groupe){
         this.nom = nom_groupe;
     }
 

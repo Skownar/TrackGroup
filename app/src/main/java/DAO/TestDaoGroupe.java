@@ -16,5 +16,7 @@ public class TestDaoGroupe {
         for (Groupe g : al){
             System.out.println(g.toString());
         }
+        Groupe g = new Groupe(0,"Motocyclette",21);
+        groupeDAO.create(g);
     }
 }
