@@ -12,6 +12,8 @@ public class groupeDAO implements DAO<Groupe> {
 
     @Override
     public ArrayList<Groupe> readAll() {
+        String hello = "";
+
         return null;
     }
 
