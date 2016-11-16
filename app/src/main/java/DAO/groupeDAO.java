@@ -13,7 +13,7 @@ public class groupeDAO implements DAO<Groupe> {
     @Override
     public ArrayList<Groupe> readAll() {
         String hello = "";
-
+        String bobo = "";
         return null;
     }
 
