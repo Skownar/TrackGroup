@@ -5,16 +5,24 @@ package com.example.leila.androidproject;
  */
 
 public class Groupe {
-    int id_groupe;
-    String nom_groupe;
-    int id_admin;
+    private int id_groupe;
+    private String nom;
+    private int id_admin;
 
     public Groupe() {}
 
     public Groupe(int id_groupe, String nom_groupe, int id_admin) {
         this.id_groupe=id_groupe;
-        this.nom_groupe=nom_groupe;
+        this.nom=nom_groupe;
         this.id_admin=id_admin;
+    }
+
+    public Groupe(String nom_groupe,int id_admin) {
+        this.id_admin = id_admin;
+        this.nom = nom_groupe;
+    }
+    public Groupe(String nom_groupe){
+        this.nom = nom_groupe;
     }
 
     public int getId_groupe() {
@@ -26,11 +34,11 @@ public class Groupe {
     }
 
     public String getNom_groupe() {
-        return nom_groupe;
+        return nom;
     }
 
     public void setNom_groupe(String nom_groupe) {
-        this.nom_groupe = nom_groupe;
+        this.nom = nom_groupe;
     }
 
     public int getId_admin() {
@@ -45,7 +53,7 @@ public class Groupe {
     public String toString() {
         return "Groupe{" +
                 "id_groupe=" + id_groupe +
-                ", nom_groupe='" + nom_groupe + '\'' +
+                ", nom_groupe='" + nom + '\'' +
                 ", id_admin=" + id_admin +
                 '}';
     }
