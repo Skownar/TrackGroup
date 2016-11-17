@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AndroidProject</string>
-    <string name="nouvGroupe">Nouveau groupe</string>
-    <string name="lblNouvGroupe">Nom du groupe</string>
+    <string name="titleCreateGroupe">Nouveau groupe</string>
+    <string name="labelNouvGroupe">Nom du groupe</string>
     <string name="btnCreaGroupe">Créer un groupe</string>
 </resources>

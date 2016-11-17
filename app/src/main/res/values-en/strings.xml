@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="nouvGroupe">New groupe</string>
-    <string name="lblNouvGroupe">Name of the group</string>
+    <string name="titleCreateGroupe">New groupe</string>
+    <string name="labelNouvGroupe">Name of the group</string>
     <string name="btnCreaGroupe">Create a group</string>
 </resources>
