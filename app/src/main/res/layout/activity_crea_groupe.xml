@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <TextView
         android:text="@string/nouvGroupe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nouvGroupe" />
+        android:id="@+id/nouvGroupe"
+        android:paddingBottom="16dp"/>
 
     <TextView
         android:text="@string/lblNouvGroupe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lblNouvGroupe" />
+        android:id="@+id/lblNouvGroupe"
+        android:layout_below="@+id/nouvGroupe"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"/>
+
 
     <EditText
-        android:layout_width="253dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/nomGroupe" />
+        android:id="@+id/nomGroupe"
+        android:layout_below="@+id/lblNouvGroupe"/>
 
     <Button
         android:text="@string/btnCreaGroupe"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCreaGroupe" />
-</LinearLayout>
+        android:id="@+id/btnCreaGroupe"
+        android:layout_below="@+id/nomGroupe"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+
+</RelativeLayout>
