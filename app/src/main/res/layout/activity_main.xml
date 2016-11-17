@@ -29,7 +29,7 @@
         android:id="@+id/addButton"
         app:backgroundTint="@android:color/holo_green_dark"
         app:rippleColor="@android:color/background_light"
-        app:elevation="24dp"
+        app:elevation="6dp"
         android:tint="@android:color/background_light"
         app:fabSize="normal"
         android:layout_marginRight="26dp"
