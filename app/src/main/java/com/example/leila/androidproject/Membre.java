@@ -9,20 +9,20 @@ public class Membre {
     String nom;
     String prenom;
     String email;
-    String username;
-    String pwd;
+    String pseudo;
+    String mdp;
     String localisation;
     int groupe_choisi;
 
     public Membre(){}
 
-    public Membre(int id_membre, String nom, String prenom, String email, String username, String pwd, String localisation,int groupe_choisi) {
+    public Membre(int id_membre, String nom, String prenom, String email, String pseudo, String mdp, String localisation,int groupe_choisi) {
         this.id_membre = id_membre;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.username = username;
-        this.pwd = pwd;
+        this.pseudo = pseudo;
+        this.mdp = mdp;
         this.localisation = localisation;
         this.groupe_choisi=groupe_choisi;
     }
@@ -59,20 +59,20 @@ public class Membre {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getMdp() {
+        return mdp;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
 
     public String getLocalisation() {
@@ -98,8 +98,8 @@ public class Membre {
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", pwd='" + pwd + '\'' +
+                ", pseudo='" + pseudo + '\'' +
+                ", mdp='" + mdp + '\'' +
                 ", localisation='" + localisation + '\'' +
                 ", groupe_choisi=" + groupe_choisi +
                 '}';
