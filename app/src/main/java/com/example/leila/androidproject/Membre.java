@@ -27,6 +27,15 @@ public class Membre {
         this.groupe_choisi=groupe_choisi;
     }
 
+    public Membre(int id_membre, String nom, String prenom, String email, String pseudo, String mdp) {
+        this.id_membre = id_membre;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.pseudo = pseudo;
+        this.mdp = mdp;
+    }
+
     public int getId_membre() {
         return id_membre;
     }

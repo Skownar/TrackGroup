@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="@string/titleCreateMembre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:id="@+id/titleCreateMembre"
+        android:textSize="@dimen/h1"/>
+
+    <TextView
+        android:text="@string/labelNom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="43dp"
+        android:id="@+id/labelNom"
+        android:layout_below="@+id/titleCreateMembre"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/inputNomMembre"
+        android:layout_alignBaseline="@+id/labelNom"
+        android:layout_alignBottom="@+id/labelNom"
+        android:layout_alignRight="@+id/inputEmail"
+        android:layout_alignEnd="@+id/inputEmail" />
+
+    <TextView
+        android:text="@string/labelPrenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/labelPrenom"
+        android:layout_below="@+id/labelNom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/inputPrenomMembre"
+        android:layout_alignBaseline="@+id/labelPrenom"
+        android:layout_alignBottom="@+id/labelPrenom"
+        android:layout_alignLeft="@+id/inputNomMembre"
+        android:layout_alignStart="@+id/inputNomMembre"
+        android:layout_alignRight="@+id/inputEmail"
+        android:layout_alignEnd="@+id/inputEmail" />
+
+    <TextView
+        android:text="@string/labelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/labelEmail"
+        android:layout_below="@+id/labelPrenom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/inputEmail"
+        android:layout_alignBaseline="@+id/labelEmail"
+        android:layout_alignBottom="@+id/labelEmail"
+        android:layout_alignRight="@+id/inputPseudo"
+        android:layout_alignEnd="@+id/inputPseudo" />
+
+    <TextView
+        android:text="@string/labelPseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/labelPseudo"
+        android:layout_below="@+id/labelEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/inputPseudo"
+        android:layout_alignBaseline="@+id/labelPseudo"
+        android:layout_alignBottom="@+id/labelPseudo"
+        android:layout_alignRight="@+id/inputMdp"
+        android:layout_alignEnd="@+id/inputMdp" />
+
+    <TextView
+        android:text="@string/labelMdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/labelMdp"
+        android:layout_below="@+id/labelPseudo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="9"
+        android:id="@+id/inputMdp"
+        android:layout_alignBaseline="@+id/labelMdp"
+        android:layout_alignBottom="@+id/labelMdp"
+        android:layout_alignLeft="@+id/titleCreateMembre"
+        android:layout_alignStart="@+id/titleCreateMembre" />
+
+    <Button
+        android:text="@string/btnEnvoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:id="@+id/btnEnvoi"
+        android:layout_below="@+id/inputMdp"
+        android:layout_alignRight="@+id/inputMdp"
+        android:layout_alignEnd="@+id/inputMdp" />
+
+
+</RelativeLayout>

@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".CreaGroupe" />
         <activity android:name=".Authentification"></activity>
+        <activity android:name=".CreaMembre"></activity>
     </application>
 
 </manifest>
