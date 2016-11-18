@@ -25,17 +25,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/inputNomMembre"
-        android:layout_alignBaseline="@+id/labelNom"
-        android:layout_alignBottom="@+id/labelNom"
-        android:layout_alignRight="@+id/inputEmail"
-        android:layout_alignEnd="@+id/inputEmail" />
-
     <TextView
         android:text="@string/labelPrenom"
         android:layout_width="wrap_content"
@@ -74,17 +63,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/inputEmail"
-        android:layout_alignBaseline="@+id/labelEmail"
-        android:layout_alignBottom="@+id/labelEmail"
-        android:layout_alignRight="@+id/inputPseudo"
-        android:layout_alignEnd="@+id/inputPseudo" />
-
     <TextView
         android:text="@string/labelPseudo"
         android:layout_width="wrap_content"
@@ -96,17 +74,6 @@
         android:layout_below="@+id/labelEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/inputPseudo"
-        android:layout_alignBaseline="@+id/labelPseudo"
-        android:layout_alignBottom="@+id/labelPseudo"
-        android:layout_alignRight="@+id/inputMdp"
-        android:layout_alignEnd="@+id/inputMdp" />
 
     <TextView
         android:text="@string/labelMdp"
@@ -120,6 +87,50 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:text="@string/btnEnvoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:id="@+id/btEnvoi"
+        android:layout_below="@+id/inputMdp"
+        android:layout_alignRight="@+id/inputMdp"
+        android:layout_alignEnd="@+id/inputMdp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/inputNomMembre"
+        android:layout_alignBaseline="@+id/labelNom"
+        android:layout_alignBottom="@+id/labelNom"
+        android:layout_alignRight="@+id/titleCreateMembre"
+        android:layout_alignEnd="@+id/titleCreateMembre" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/inputEmail"
+        android:layout_alignBaseline="@+id/labelEmail"
+        android:layout_alignBottom="@+id/labelEmail"
+        android:layout_alignLeft="@+id/inputNomMembre"
+        android:layout_alignStart="@+id/inputNomMembre" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/inputPseudo"
+        android:layout_alignBaseline="@+id/labelPseudo"
+        android:layout_alignBottom="@+id/labelPseudo"
+        android:layout_alignLeft="@+id/inputEmail"
+        android:layout_alignStart="@+id/inputEmail" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -128,18 +139,8 @@
         android:id="@+id/inputMdp"
         android:layout_alignBaseline="@+id/labelMdp"
         android:layout_alignBottom="@+id/labelMdp"
-        android:layout_alignLeft="@+id/titleCreateMembre"
-        android:layout_alignStart="@+id/titleCreateMembre" />
-
-    <Button
-        android:text="@string/btnEnvoi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:id="@+id/btnEnvoi"
-        android:layout_below="@+id/inputMdp"
-        android:layout_alignRight="@+id/inputMdp"
-        android:layout_alignEnd="@+id/inputMdp" />
+        android:layout_alignRight="@+id/inputPseudo"
+        android:layout_alignEnd="@+id/inputPseudo" />
 
 
 </RelativeLayout>

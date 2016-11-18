@@ -42,6 +42,7 @@ public class MembreDAO implements DAO<Membre> {
     public ArrayList<Membre> readAll() {
         System.out.println("---  read all members method  ---");
         ListeMembre listeMembre = new ListeMembre();
+
         try {
             String listeJson = service.path("gestionMembre").path("membreinfo/").get(String.class);
             listeMembre = gson.fromJson(listeJson, ListeMembre.class);
@@ -49,7 +50,6 @@ public class MembreDAO implements DAO<Membre> {
             System.err.println(e);
             listeMembre.setItems(null);
         }
-
         return listeMembre.getItems();
     }
 

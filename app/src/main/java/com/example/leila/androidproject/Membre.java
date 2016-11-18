@@ -34,6 +34,7 @@ public class Membre {
         this.email = email;
         this.pseudo = pseudo;
         this.mdp = mdp;
+
     }
 
     public int getId_membre() {

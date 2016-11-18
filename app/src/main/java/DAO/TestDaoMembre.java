@@ -19,5 +19,6 @@ public class TestDaoMembre {
         Membre g = new Membre(0,"Durant","Jean","durant.jean@mail.be","jeanjean","condorcet","",0);
         int id_membre = membreDAO.create(g);
         System.out.println("Le nouveau membre port l'id : " + id_membre);
+
     }
 }

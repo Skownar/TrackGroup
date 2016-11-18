@@ -10,6 +10,7 @@
     <string name="labelEmail">Email</string>
     <string name="labelPseudo">Pseudo</string>
     <string name="labelMdp">Mot de passe</string>
+    <string name="btnEnvoi">Envoi</string>
 
     <string name="titleAuthentification">Authentification</string>
     <string name="btnConnexion">se connecter</string>

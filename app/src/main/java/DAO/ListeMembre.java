@@ -11,8 +11,10 @@ import java.util.ArrayList;
 public class ListeMembre extends ListeApex<Membre> {
     @Override
     public void setItems(ArrayList<Membre> list) {
+
         items=list;
     }
+
 
     @Override
     public ArrayList<Membre> getItems() {
