@@ -51,7 +51,7 @@ public class CreaGroupe extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(String... params) {
-            Groupe groupe = new Groupe(0,nomGroupe,21);
+            Groupe groupe = new Groupe(0,nomGroupe,41);
             GroupeDAO groupeDAO = new GroupeDAO();
             try {
                 int i = groupeDAO.create(groupe);
