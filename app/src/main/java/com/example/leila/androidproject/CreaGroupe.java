@@ -14,6 +14,7 @@ public class CreaGroupe extends AppCompatActivity {
     private EditText getNomGroupe;
     private String nomGroupe;
     private TextView textOperation;
+    private String exception;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class CreaGroupe extends AppCompatActivity {
         btnCreate.setOnClickListener(v -> {
             getNomGroupe = (EditText) findViewById(R.id.inputNomGroupe);
             nomGroupe = getNomGroupe.getText().toString();
+            exception = " ";
             InsertGroupe insertGroupe = new InsertGroupe(CreaGroupe.this);
             insertGroupe.execute();
         }
