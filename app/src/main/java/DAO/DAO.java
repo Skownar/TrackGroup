@@ -26,7 +26,7 @@ public interface DAO<T> {
      * ORAEXCEPTION
      *
      * ORA-00001 : unique value exception
-     *
+     * ORA-02291 : integrity error
      */
     ArrayList<T> readAll();
     T readById();
