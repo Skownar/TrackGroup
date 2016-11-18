@@ -4,11 +4,14 @@
     <string name="labelNouvGroupe">Nom du groupe</string>
     <string name="btnCreaGroupe">Créer un groupe</string>
 
-    <string name="titleCreateMembre">Inscription</string>
+    <string name="titleCreateMembre">Créer un membre</string>
     <string name="labelNom">Nom</string>
     <string name="labelPrenom">Prenom</string>
     <string name="labelEmail">Email</string>
     <string name="labelPseudo">Pseudo</string>
     <string name="labelMdp">Mot de passe</string>
-    <string name="btnEnvoi">Envoi</string>
+
+    <string name="titleAuthentification">Authentification</string>
+    <string name="btnConnexion">se connecter</string>
+    <string name="btnInscrire">s\'inscrire</string>
 </resources>

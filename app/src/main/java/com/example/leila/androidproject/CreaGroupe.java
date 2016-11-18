@@ -14,6 +14,7 @@ public class CreaGroupe extends AppCompatActivity {
     private EditText getNomGroupe;
     private String nomGroupe;
     private TextView textOperation;
+    private String exception;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class CreaGroupe extends AppCompatActivity {
         btnCreate.setOnClickListener(v -> {
             getNomGroupe = (EditText) findViewById(R.id.inputNomGroupe);
             nomGroupe = getNomGroupe.getText().toString();
+            exception = " ";
             InsertGroupe insertGroupe = new InsertGroupe(CreaGroupe.this);
             insertGroupe.execute();
         }
@@ -51,7 +53,7 @@ public class CreaGroupe extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(String... params) {
-            Groupe groupe = new Groupe(0,nomGroupe,21);
+            Groupe groupe = new Groupe(0,nomGroupe,41);
             GroupeDAO groupeDAO = new GroupeDAO();
             try {
                 int i = groupeDAO.create(groupe);

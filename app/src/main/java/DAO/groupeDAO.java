@@ -9,6 +9,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 import java.net.URI;
+import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.PropertyResourceBundle;
 
@@ -24,6 +25,7 @@ import javax.ws.rs.core.UriBuilder;
  */
 
 public class GroupeDAO implements DAO<Groupe> {
+    
     private Client c;
     private URI uri;
     private WebResource service;

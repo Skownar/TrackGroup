@@ -20,6 +20,14 @@ import javax.ws.rs.core.UriBuilder;
  */
 
 public interface DAO<T> {
+
+    /**
+     *
+     * ORAEXCEPTION
+     *
+     * ORA-00001 : unique value exception
+     *
+     */
     ArrayList<T> readAll();
     T readById();
     int create(T obj);
