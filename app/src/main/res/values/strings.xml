@@ -15,4 +15,10 @@
     <string name="titleAuthentification">Authentification</string>
     <string name="btnConnexion">se connecter</string>
     <string name="btnInscrire">s\'inscrire</string>
+    <string name="title_activity_test_drawer">TestDrawerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

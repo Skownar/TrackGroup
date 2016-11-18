@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class TestDaoMembre {
     public static void main(String[] args) {
         MembreDAO membreDAO = new MembreDAO();
-        ArrayList<Membre> al = new ArrayList<>();
+        ArrayList<Membre> al;
         al = membreDAO.readAll();
         for (Membre m : al){
             System.out.println(m.toString());
