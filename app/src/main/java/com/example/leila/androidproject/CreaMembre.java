@@ -56,10 +56,8 @@ public class CreaMembre extends AppCompatActivity {
 
         public InsertMembre(CreaMembre linkActivity) {
             link(linkActivity);
-            // TODO Auto-generated constructor stub
         }
         private void link(CreaMembre pActivity) {
-            // TODO Auto-generated method stub
         }
 
         @Override

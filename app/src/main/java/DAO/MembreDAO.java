@@ -15,28 +15,13 @@ import javax.ws.rs.core.UriBuilder;
 /**
  * Created by Leïla on 18-11-16.
  */
+// TODO Récupération des erreurs (Integrity & Unique)
 
-public class MembreDAO implements DAO<Membre> {
-    private Client c;
-    private URI uri;
-    private WebResource service;
-    private Gson gson;
-    private String json;
-    private ClientResponse response;
-    private int status;
+public class MembreDAO extends BaseDAO implements DAO<Membre> {
 
     public MembreDAO() {
-        System.out.println("-- new MEMBREDAO --");
-        try {
-            c = Client.create();
-            uri = UriBuilder.fromUri("https://apex.oracle.com/pls/apex/locagroup").build();
-            service = c.resource(uri);
-            gson = new Gson();
-        } catch (Exception e) {
-            System.err.println(e);
-        }
+       super();
     }
-
 
     @Override
     public ArrayList<Membre> readAll() {

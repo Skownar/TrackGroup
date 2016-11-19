@@ -39,10 +39,9 @@ public class CreaGroupe extends AppCompatActivity {
         public InsertGroupe(CreaGroupe linkActivity) {
 
             link(linkActivity);
-            // TODO Auto-generated constructor stub
+
         }
         private void link(CreaGroupe pActivity) {
-            // TODO Auto-generated method stub
 
         }
 
