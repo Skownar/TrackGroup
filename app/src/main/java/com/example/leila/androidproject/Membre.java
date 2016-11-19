@@ -1,10 +1,13 @@
 package com.example.leila.androidproject;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Leïla on 16-11-16.
  */
 
-public class Membre {
+public class Membre implements Parcelable{
     int id_membre;
     String nom;
     String prenom;
@@ -36,6 +39,29 @@ public class Membre {
         this.mdp = mdp;
 
     }
+
+    protected Membre(Parcel in) {
+        id_membre = in.readInt();
+        nom = in.readString();
+        prenom = in.readString();
+        email = in.readString();
+        pseudo = in.readString();
+        mdp = in.readString();
+        localisation = in.readString();
+        groupe_choisi = in.readInt();
+    }
+
+    public static final Creator<Membre> CREATOR = new Creator<Membre>() {
+        @Override
+        public Membre createFromParcel(Parcel in) {
+            return new Membre(in);
+        }
+
+        @Override
+        public Membre[] newArray(int size) {
+            return new Membre[size];
+        }
+    };
 
     public int getId_membre() {
         return id_membre;
@@ -113,5 +139,22 @@ public class Membre {
                 ", localisation='" + localisation + '\'' +
                 ", groupe_choisi=" + groupe_choisi +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id_membre);
+        dest.writeString(nom);
+        dest.writeString(prenom);
+        dest.writeString(email);
+        dest.writeString(pseudo);
+        dest.writeString(mdp);
+        dest.writeString(localisation);
+        dest.writeInt(groupe_choisi);
     }
 }
