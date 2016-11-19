@@ -84,7 +84,6 @@ public class GroupeDAO implements DAO<Groupe> {
             System.err.println("convertion json failed "+ e);
         }
         response = service.path("gestionGroupe").path("creaGroupe/").type("application/json").post(ClientResponse.class,json);
-       // System.out.println(service.path("gestionGroupe").path("creaGroupe"));
         int status = response.getStatus();
         MultivaluedMap header = response.getHeaders();
         if(status >= 400){
