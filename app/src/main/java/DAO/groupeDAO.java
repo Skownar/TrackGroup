@@ -21,31 +21,16 @@ import javax.ws.rs.core.UriBuilder;
  * <p>
  * Implémentation de l'interface dao
  * <p>
- * Variables en variables pour éviter la redondance de code
+ * Variables en variables de classe pour éviter la redondance de code
  */
+// TODO Récupération des erreurs (Integrity & Unique)
 
-public class GroupeDAO implements DAO<Groupe> {
+public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
     
-    private Client c;
-    private URI uri;
-    private WebResource service;
-    private Gson gson;
-    private String json;
-    private ClientResponse response;
-    private int status;
+
     public GroupeDAO() {
-
-        System.out.println("-- new GROUPEDAO --");
-        try {
-            c = Client.create();
-            uri = UriBuilder.fromUri("https://apex.oracle.com/pls/apex/locagroup").build();
-            service = c.resource(uri);
-            gson = new Gson();
-        } catch (Exception e) {
-            System.err.println(e);
-        }
+        super();
     }
-
 
     @Override
     public ArrayList<Groupe> readAll() {
