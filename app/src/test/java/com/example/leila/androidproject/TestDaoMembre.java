@@ -1,8 +1,10 @@
-package DAO;
+package com.example.leila.androidproject;
 
 import com.example.leila.androidproject.Membre;
 
 import java.util.ArrayList;
+
+import DAO.MembreDAO;
 
 /**
  * Created by Leïla on 18-11-16.

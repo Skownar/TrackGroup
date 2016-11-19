@@ -1,9 +1,11 @@
-package DAO;
+package com.example.leila.androidproject;
 
 import com.example.leila.androidproject.Groupe;
 
 import java.nio.channels.Pipe;
 import java.util.ArrayList;
+
+import DAO.GroupeDAO;
 
 /**
  * Created by lafer on 16-11-16.
