@@ -8,7 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import DAO.GroupeDAO;
-
+/**
+ * Created by lafer on 15-11-16.
+ */
 public class CreaGroupe extends AppCompatActivity {
     private Button btnCreate ;
     private EditText getNomGroupe;
