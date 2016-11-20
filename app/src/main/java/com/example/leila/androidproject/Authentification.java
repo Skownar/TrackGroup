@@ -33,6 +33,7 @@ public class Authentification extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentification);
         membre = new Membre();
+
         // Event inscription
         btnInscription = (Button) findViewById(R.id.btnSinscrire);
         btnInscription.setOnClickListener(v -> {
