@@ -23,7 +23,7 @@ public class BaseDAO {
     protected int status;
 
     public BaseDAO(){
-        System.out.println("-- new MEMBREDAO --");
+        System.out.println("-- new DAO --");
         try {
             c = Client.create();
             uri = UriBuilder.fromUri("https://apex.oracle.com/pls/apex/locagroup").build();

@@ -50,7 +50,7 @@ public class CreaMembre extends AppCompatActivity {
         });
     }
 
-    class InsertMembre extends AsyncTask<String,Integer,Boolean>{
+    private class InsertMembre extends AsyncTask<String,Integer,Boolean>{
 
         String result;
 
@@ -85,7 +85,7 @@ public class CreaMembre extends AppCompatActivity {
             
             super.onPostExecute(aBoolean);
             btnEnvoi.setEnabled(true);
-            if(aBoolean) Toast.makeText(getApplicationContext(),"Vous êtes desormais inscrit",Toast.LENGTH_LONG);
+            if(aBoolean) Toast.makeText(getApplicationContext(),"Vous etes desormais inscrit",Toast.LENGTH_LONG);
             else Toast.makeText(getApplicationContext(),"Erreur lors de l'ajout ",Toast.LENGTH_LONG);
         }
 

@@ -14,7 +14,7 @@ import DAO.GroupeDAO;
 public class TestDaoGroupe {
     public static void main(String[] args) {
         GroupeDAO groupeDAO = new GroupeDAO();
-        ArrayList<Groupe> al = new ArrayList<>();
+        ArrayList<Groupe> al;
         al = groupeDAO.readAll();
         for (Groupe g : al){
             System.out.println(g.toString());

@@ -25,15 +25,14 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
 
     @Override
     public ArrayList<Membre> readAll() {
-        System.out.println("---  read all members method  ---");
-        ListeMembre listeMembre = new ListeMembre();
-
+        System.out.println("---  read all method  ---");
+        ListeMembre listeMembre ;
         try {
             String listeJson = service.path("gestionMembre").path("membreinfo/").get(String.class);
             listeMembre = gson.fromJson(listeJson, ListeMembre.class);
         } catch (Exception e) {
             System.err.println(e);
-            listeMembre.setItems(null);
+            listeMembre = null;
         }
         return listeMembre.getItems();
     }
@@ -57,8 +56,9 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
             System.err.println("erreur status " + status);
             System.err.println(header.getFirst("Error-Reason"));
         }else{
-            System.out.println("Paramètre retourné : " + header.getFirst("id_membre"));
+            System.out.println("Paramètre retourné : " + header.getFirst("id"));
             System.out.println("Ajout effecuté avec succès !");
+            id_membre = Integer.parseInt((header.getFirst("id").toString()));
         }
         return id_membre;
 

@@ -38,6 +38,7 @@ public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
         ListeGroupe listeGroupe = new ListeGroupe();
         try {
             String listeJson = service.path("gestionGroupe").path("groupeinfo/").get(String.class);
+            System.out.println(listeJson.toString());
             listeGroupe = gson.fromJson(listeJson, ListeGroupe.class);
         } catch (Exception e) {
             System.err.println(e);

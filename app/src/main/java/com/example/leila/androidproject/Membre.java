@@ -40,28 +40,8 @@ public class Membre implements Parcelable{
 
     }
 
-    protected Membre(Parcel in) {
-        id_membre = in.readInt();
-        nom = in.readString();
-        prenom = in.readString();
-        email = in.readString();
-        pseudo = in.readString();
-        mdp = in.readString();
-        localisation = in.readString();
-        groupe_choisi = in.readInt();
-    }
 
-    public static final Creator<Membre> CREATOR = new Creator<Membre>() {
-        @Override
-        public Membre createFromParcel(Parcel in) {
-            return new Membre(in);
-        }
 
-        @Override
-        public Membre[] newArray(int size) {
-            return new Membre[size];
-        }
-    };
 
     public int getId_membre() {
         return id_membre;
@@ -157,4 +137,27 @@ public class Membre implements Parcelable{
         dest.writeString(localisation);
         dest.writeInt(groupe_choisi);
     }
+
+    public static final Creator<Membre> CREATOR = new Creator<Membre>() {
+        @Override
+        public Membre createFromParcel(Parcel in) {
+            return new Membre(in);
+        }
+
+        @Override
+        public Membre[] newArray(int size) {
+            return new Membre[size];
+        }
+    };
+    public Membre(Parcel in) {
+        id_membre = in.readInt();
+        nom = in.readString();
+        prenom = in.readString();
+        email = in.readString();
+        pseudo = in.readString();
+        mdp = in.readString();
+        localisation = in.readString();
+        groupe_choisi = in.readInt();
+    }
+
 }
