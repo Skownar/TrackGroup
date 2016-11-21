@@ -1,20 +1,11 @@
 package DAO;
 
-import android.net.Uri;
-
 import com.example.leila.androidproject.Groupe;
-import com.google.gson.Gson;
-import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
 
-import java.net.URI;
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
-import java.util.PropertyResourceBundle;
 
 import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.UriBuilder;
 
 /**
  * Created by lafer on 16-11-16.
@@ -23,7 +14,6 @@ import javax.ws.rs.core.UriBuilder;
  * <p>
  * Variables en variables de classe pour éviter la redondance de code
  */
-// TODO Récupération des erreurs (Integrity & Unique)
 
 public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
     
@@ -76,9 +66,12 @@ public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
         if(status >= 400){
             System.err.println("erreur status " + status);
             System.err.println(header.getFirst("Error-Reason"));
+
+            // pour récupérer l'erreur dans l'asynctask creaGroupe;
+            ExceptionManager.set_exception(header.getFirst("Error-Reason").toString());
         }else{
             System.out.println("Paramètre retourné : " + header.getFirst("id_groupe"));
-            System.out.println("Ajout effecuté avec succès ! easy frère");
+            System.out.println("Ajout effecuté avec succès !");
         }
         return id_groupe;
     }

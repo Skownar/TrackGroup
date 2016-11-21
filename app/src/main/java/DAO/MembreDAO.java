@@ -15,7 +15,6 @@ import javax.ws.rs.core.UriBuilder;
 /**
  * Created by Leïla on 18-11-16.
  */
-// TODO Récupération des erreurs (Integrity & Unique)
 
 public class MembreDAO extends BaseDAO implements DAO<Membre> {
 

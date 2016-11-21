@@ -19,7 +19,7 @@ public class TestDaoGroupe {
         for (Groupe g : al){
             System.out.println(g.toString());
         }
-        Groupe g = new Groupe(0,"SuperBiker",41);
+        Groupe g = new Groupe(0,"SuperBiker",1);
         int id_groupe = groupeDAO.create(g);
         System.out.println("Le nouveau groupe port l'id : " + id_groupe);
     }
