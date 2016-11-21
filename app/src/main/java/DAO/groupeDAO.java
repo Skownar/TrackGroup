@@ -58,6 +58,7 @@ public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
     public boolean update() {
         return false;
     }
+
     @Override
     public int create(Groupe groupe) {
         int id_groupe = 0;

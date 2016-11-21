@@ -19,7 +19,6 @@ public class IdentifiantsDAO extends BaseDAO implements DAO<Groupe>{
 
     public IdentifiantsDAO() {
         super();
-
     }
 
     public Membre read(Identifiants id) throws JSONException {

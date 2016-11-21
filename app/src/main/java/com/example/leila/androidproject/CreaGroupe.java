@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import DAO.ExceptionManager;
 import DAO.GroupeDAO;
 /**
  * Created by lafer on 15-11-16.
@@ -26,7 +28,7 @@ public class CreaGroupe extends AppCompatActivity {
         btnCreate.setOnClickListener(v -> {
             getNomGroupe = (EditText) findViewById(R.id.inputNomGroupe);
             nomGroupe = getNomGroupe.getText().toString();
-            exception = " ";
+
             InsertGroupe insertGroupe = new InsertGroupe(CreaGroupe.this);
             insertGroupe.execute();
         }
@@ -60,6 +62,8 @@ public class CreaGroupe extends AppCompatActivity {
                 int i = groupeDAO.create(groupe);
             }catch (Exception e){
                 System.err.println(e);
+                exception = e.toString();
+                return false;
             }
             return true;
         }
@@ -68,8 +72,11 @@ public class CreaGroupe extends AppCompatActivity {
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             btnCreate.setEnabled(true);
-            if(aBoolean) textOperation.setText("Creation reussie");
-            else textOperation.setText("Erreur lors de l'ajout :s ");
+            if(aBoolean){
+                Toast.makeText(getApplicationContext(),"Création réussie",Toast.LENGTH_LONG);
+
+            }
+            else Toast.makeText(getApplicationContext(),ExceptionManager.checkError(exception),Toast.LENGTH_LONG);
         }
 
         @Override
