@@ -1,0 +1,102 @@
+package com.example.leila.androidproject;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+
+import java.util.HashMap;
+
+/**
+ * Created by lafer on 21-11-16.
+ *
+ * Classe qui servira à faire transiter les informations du membre dans toutes l'application
+ *
+ * ex : ID_membre ajouté par l'activité Authentification
+ *      Les activités Invitations recue, mainactivity( liste des groupes où le membre est inscrit), et invitations envoyés se serviront du sessionManager pour récupéré cet ID
+ *      permet de ne pas
+ *
+ */
+
+public class SessionManager {
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
+    Context _context;
+    int PRIVATE_MODE = 0;
+
+    private static final String PREF_NAME = "UserInfos";
+
+    private static final String IS_LOGIN = "IsLoggedIn";
+
+    public static final String KEY_ID_MEMBRE = "id_membre";
+
+    public static final String KEY_NOM = "nom";
+
+    public static final String KEY_PRENOM = "prenom";
+    public static final String KEY_EMAIL = "email";
+    public static final String KEY_PSEUDO = "pseudo";
+    public static final String KEY_MDP = "mdp";
+    public static final String KEY_LOCALISATION = "localisation";
+    public static final String KEY_GROUPE_CHOISI = "groupe_choisi";
+
+    public SessionManager(Context context){
+        this._context = context;
+        prefs = _context.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
+        editor = prefs.edit();
+    }
+
+    public void createLoginSession(int id_membre, String nom,String prenom,String email,String pseudo,String mdp){
+        editor.putBoolean(IS_LOGIN,true);
+        editor.putInt(KEY_ID_MEMBRE,id_membre);
+        editor.putString(KEY_NOM,nom);
+        editor.putString(KEY_PRENOM,prenom);
+        editor.putString(KEY_EMAIL,email);
+        editor.putString(KEY_PSEUDO,pseudo);
+        editor.putString(KEY_MDP,mdp);
+        editor.commit();
+    }
+
+    // definition de méthode set key pour ne pas oublier le commit !
+    public void setKeyLocalisation(String localisation){
+        editor.putString(KEY_LOCALISATION,localisation);
+        editor.commit();
+    }
+    public void setKeyGroupeChoisi(int groupeChoisi ){
+        editor.putInt(KEY_GROUPE_CHOISI,groupeChoisi);
+        editor.commit();
+    }
+    // TODO verifier que comme la localisation et le groupe choisi n'est pas défini à la connexion, qu'il ne faut pas rappeler cette méthode une fois ces deux parametres défini
+    public HashMap<String,String> getInformations(){
+        HashMap<String,String> infos = new HashMap<>();
+        infos.put(KEY_ID_MEMBRE,prefs.getString(KEY_ID_MEMBRE,null));
+        infos.put(KEY_NOM,prefs.getString(KEY_NOM,null));
+        infos.put(KEY_PRENOM,prefs.getString(KEY_PRENOM,null));
+        infos.put(KEY_EMAIL,prefs.getString(KEY_EMAIL,null));
+        infos.put(KEY_PSEUDO,prefs.getString(KEY_PSEUDO,null));
+        infos.put(KEY_MDP,prefs.getString(KEY_NOM,null));
+        infos.put(KEY_LOCALISATION,prefs.getString(KEY_NOM,null));
+        infos.put(KEY_GROUPE_CHOISI,prefs.getString(KEY_GROUPE_CHOISI,null));
+        return infos;
+    }
+    public void checkLogin(){
+        // verif si connecté
+        if(!this.isLoggedIn()){
+            // redirection vers authentification
+            Intent i = new Intent(_context,Authentification.class);
+            // Fermes toutes les activités
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+            // Ajout d'un nouveau flag pour démarrer l'activité
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            _context.startActivity(i);
+        }
+    }
+    public void logOut(){
+        editor.clear();
+        editor.commit();
+        checkLogin();
+    }
+    public boolean isLoggedIn(){
+        return prefs.getBoolean(IS_LOGIN, false);
+    }
+}
