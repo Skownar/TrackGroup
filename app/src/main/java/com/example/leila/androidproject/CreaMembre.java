@@ -1,5 +1,6 @@
 package com.example.leila.androidproject;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -74,18 +75,28 @@ public class CreaMembre extends AppCompatActivity {
             MembreDAO membreDAO= new MembreDAO();
             try{
                 int i = membreDAO.create(membre);
+                if(i < 1){
+                    return false;
+                }
             }catch (Exception e){
                 System.err.println(e);
+                return false;
             }
             return true;
         }
 
         @Override
         protected void onPostExecute(Boolean aBoolean) {
-            btnEnvoi.setEnabled(true);
-            if(aBoolean) Toast.makeText(getApplicationContext(),"Vous etes desormais inscrit",Toast.LENGTH_LONG);
-            else Toast.makeText(getApplicationContext(),"Erreur lors de l'ajout ",Toast.LENGTH_LONG);
             super.onPostExecute(aBoolean);
+            btnEnvoi.setEnabled(true);
+            if(aBoolean){
+                Toast.makeText(getApplicationContext(),"Vous etes desormais inscrit",Toast.LENGTH_LONG).show();
+                Intent t = new Intent(CreaMembre.this,Authentification.class);
+                startActivity(t);
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Erreur lors de l'ajout ",Toast.LENGTH_LONG).show();
+            }
 
         }
 

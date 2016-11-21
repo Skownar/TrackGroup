@@ -1,5 +1,6 @@
 package DAO;
 
+import com.example.leila.androidproject.ExceptionManager;
 import com.example.leila.androidproject.Groupe;
 import com.sun.jersey.api.client.ClientResponse;
 
