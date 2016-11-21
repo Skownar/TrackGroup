@@ -82,11 +82,11 @@ public class CreaMembre extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Boolean aBoolean) {
-            
-            super.onPostExecute(aBoolean);
             btnEnvoi.setEnabled(true);
             if(aBoolean) Toast.makeText(getApplicationContext(),"Vous etes desormais inscrit",Toast.LENGTH_LONG);
             else Toast.makeText(getApplicationContext(),"Erreur lors de l'ajout ",Toast.LENGTH_LONG);
+            super.onPostExecute(aBoolean);
+
         }
 
         @Override

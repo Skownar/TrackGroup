@@ -72,6 +72,7 @@ public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
         }else{
             System.out.println("Paramètre retourné : " + header.getFirst("id_groupe"));
             System.out.println("Ajout effecuté avec succès !");
+            id_groupe = Integer.parseInt((header.getFirst("id_groupe").toString()));
         }
         return id_groupe;
     }

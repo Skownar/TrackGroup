@@ -58,6 +58,7 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
             System.out.println("Paramètre retourné : " + header.getFirst("id"));
             System.out.println("Ajout effecuté avec succès !");
             id_membre = Integer.parseInt((header.getFirst("id").toString()));
+            System.out.println("id du membre après reception de l'header = " +id_membre);
         }
         return id_membre;
 

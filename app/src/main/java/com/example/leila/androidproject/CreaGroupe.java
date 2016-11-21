@@ -71,11 +71,12 @@ public class CreaGroupe extends AppCompatActivity {
                 if (i < 1) {
                     return false;
                 }
-                else return true;
             } catch (Exception e) {
                 System.err.println(e);
                 return false;
             }
+            System.out.println("résultat de do in background est = ");
+            return true;
         }
 
         @Override
@@ -83,11 +84,12 @@ public class CreaGroupe extends AppCompatActivity {
             super.onPostExecute(aBoolean);
             btnCreate.setEnabled(true);
             if (aBoolean) {
-                Toast.makeText(getApplicationContext(), "Création réussie", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Creation reussie", Toast.LENGTH_LONG).show();
                 Intent t = new Intent(CreaGroupe.this, MainActivity.class);
                 startActivity(t);
             } else
                 Toast.makeText(getApplicationContext(), ExceptionManager.checkError(), Toast.LENGTH_LONG).show();
+
         }
 
         @Override
