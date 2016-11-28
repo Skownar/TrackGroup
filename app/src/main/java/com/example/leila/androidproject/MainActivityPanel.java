@@ -1,6 +1,9 @@
 package com.example.leila.androidproject;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -37,21 +40,20 @@ public class MainActivityPanel extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
         // logique de l'activité
         // ATTENTION : etre attentif a cette portion de code
         // START /!\
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         // récuperation des info du membre connecté
         sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
         HashMap<String,String> membreDetails = sessionManager.getInformations();
         String nomPrenom = membreDetails.get(SessionManager.KEY_NOM) + " " + membreDetails.get(SessionManager.KEY_PRENOM);
         String email = membreDetails.get(SessionManager.KEY_EMAIL);
-        System.out.println("-----------------NOM PRENOM " + nomPrenom);
 
-        // creation d'un pointeur vers la vue du header du panneau lateral (ici son header pour les nom prenom email)
+        // creation d'un pointeur vers la vue du header du panneau lateral (nom prenom email)
         View navigationViewHeader = navigationView.getHeaderView(0);
 
         // récuperation des éléments via un findViewById specifique à la nouvelle vue pointer.
@@ -85,7 +87,7 @@ public class MainActivityPanel extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main_activity_panel, menu);
+        getMenuInflater().inflate(R.menu.main_activity_panel, menu);
         return true;
     }
 
@@ -122,4 +124,30 @@ public class MainActivityPanel extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    private class ListingGroupe extends AsyncTask<String,Integer,Boolean> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Boolean doInBackground(String... params) {
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {super.onProgressUpdate(values);}
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+        }
+
+        @Override
+        protected void onCancelled() { super.onCancelled();}
+    }
 }
+
+

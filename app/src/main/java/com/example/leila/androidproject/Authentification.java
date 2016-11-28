@@ -1,10 +1,12 @@
 package com.example.leila.androidproject;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class Authentification extends AppCompatActivity{
     private Membre membre;
     private Identifiants identifiants;
     SessionManager sessionManager;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +73,10 @@ public class Authentification extends AppCompatActivity{
 
         private String resultat;
         public Connexion(Authentification linkActivity)
-
         {
+            progressDialog = new ProgressDialog(linkActivity);
             link(linkActivity);
+
         }
         private void link(Authentification pActivity) {
 
@@ -82,6 +86,8 @@ public class Authentification extends AppCompatActivity{
         protected void onPreExecute() {
             btnConnexion.setEnabled(false);
             btnInscription.setEnabled(false);
+            progressDialog.setMessage("Connexion en cours");
+            progressDialog.show();
             super.onPreExecute();
         }
 
@@ -109,6 +115,8 @@ public class Authentification extends AppCompatActivity{
         protected void onPostExecute(Boolean aBoolean) {
             btnConnexion.setEnabled(true);
             btnInscription.setEnabled(true);
+            if(progressDialog.isShowing())
+                progressDialog.dismiss();
             if(aBoolean){
                 Toast.makeText(getApplicationContext(),"Connexion reussie",Toast.LENGTH_LONG).show();
                 Intent t = new Intent(getApplicationContext(),MainActivityPanel.class);
@@ -123,7 +131,7 @@ public class Authentification extends AppCompatActivity{
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            System.out.println(Arrays.toString(values));
+
             super.onProgressUpdate(values);
         }
 
