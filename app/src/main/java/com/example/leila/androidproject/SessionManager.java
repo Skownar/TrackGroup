@@ -44,14 +44,14 @@ public class SessionManager {
         editor = prefs.edit();
     }
 
-    public void createLoginSession(int id_membre, String nom,String prenom,String email,String pseudo,String mdp){
+    public void createLoginSession(Membre m){
         editor.putBoolean(IS_LOGIN,true);
-        editor.putInt(KEY_ID_MEMBRE,id_membre);
-        editor.putString(KEY_NOM,nom);
-        editor.putString(KEY_PRENOM,prenom);
-        editor.putString(KEY_EMAIL,email);
-        editor.putString(KEY_PSEUDO,pseudo);
-        editor.putString(KEY_MDP,mdp);
+        editor.putInt(KEY_ID_MEMBRE,m.getId_membre());
+        editor.putString(KEY_NOM,m.getNom());
+        editor.putString(KEY_PRENOM,m.getPrenom());
+        editor.putString(KEY_EMAIL,m.getEmail());
+        editor.putString(KEY_PSEUDO,m.getPseudo());
+        editor.putString(KEY_MDP,m.getMdp());
         editor.commit();
     }
 
@@ -67,7 +67,7 @@ public class SessionManager {
     // TODO verifier que comme la localisation et le groupe choisi n'est pas défini à la connexion, qu'il ne faut pas rappeler cette méthode une fois ces deux parametres défini
     public HashMap<String,String> getInformations(){
         HashMap<String,String> infos = new HashMap<>();
-        infos.put(KEY_ID_MEMBRE,prefs.getString(KEY_ID_MEMBRE,null));
+        infos.put(KEY_ID_MEMBRE,Integer.toString(prefs.getInt(KEY_ID_MEMBRE,0)));
         infos.put(KEY_NOM,prefs.getString(KEY_NOM,null));
         infos.put(KEY_PRENOM,prefs.getString(KEY_PRENOM,null));
         infos.put(KEY_EMAIL,prefs.getString(KEY_EMAIL,null));

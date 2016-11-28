@@ -27,10 +27,12 @@ public class Authentification extends AppCompatActivity{
     private TextView mdp;
     private Membre membre;
     private Identifiants identifiants;
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentification);
+        sessionManager = new SessionManager(getApplicationContext());
         membre = new Membre();
 
         // Event inscription
@@ -92,6 +94,7 @@ public class Authentification extends AppCompatActivity{
                 if (membre != null){
                     result = true;
                     System.out.println(membre.toString());
+                    sessionManager.createLoginSession(membre);
                 }
                 else
                     return false;
@@ -109,8 +112,9 @@ public class Authentification extends AppCompatActivity{
             //TODO quand sessionManager DONE : passer les informations du membre loggué.
             if(aBoolean){
                 Toast.makeText(getApplicationContext(),"Connexion reussie",Toast.LENGTH_LONG).show();
-                Intent t = new Intent(Authentification.this,MainActivity.class);
+                Intent t = new Intent(getApplicationContext(),MainActivityPanel.class);
                 startActivity(t);
+                finish();
             }
             else {
                 Toast.makeText(getApplicationContext(),"Connexion echouee, retry",Toast.LENGTH_LONG).show();
