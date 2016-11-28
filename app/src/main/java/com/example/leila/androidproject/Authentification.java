@@ -109,7 +109,6 @@ public class Authentification extends AppCompatActivity{
         protected void onPostExecute(Boolean aBoolean) {
             btnConnexion.setEnabled(true);
             btnInscription.setEnabled(true);
-            //TODO quand sessionManager DONE : passer les informations du membre loggué.
             if(aBoolean){
                 Toast.makeText(getApplicationContext(),"Connexion reussie",Toast.LENGTH_LONG).show();
                 Intent t = new Intent(getApplicationContext(),MainActivityPanel.class);
