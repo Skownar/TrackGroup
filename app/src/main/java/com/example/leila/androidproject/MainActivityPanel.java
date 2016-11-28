@@ -19,7 +19,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.util.HashMap;
-
+/**
+ * Created by lafer on 28-11-16.
+ */
 public class MainActivityPanel extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
