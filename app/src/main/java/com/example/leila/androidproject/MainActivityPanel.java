@@ -16,9 +16,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import DAO.ContientDAO;
+import DAO.GroupeDAO;
+
 /**
  * Created by lafer on 28-11-16.
  */
@@ -28,12 +36,19 @@ public class MainActivityPanel extends AppCompatActivity
     SessionManager sessionManager;
     TextView tvNomPrenom;
     TextView tvEmail;
+
+    ListView listGroup;
+    HashMap<String,String> membreDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_panel);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        listGroup=(ListView)findViewById(R.id.listView);
         setSupportActionBar(toolbar);
+
+        ListingGroupe listingGroupe = new ListingGroupe(MainActivityPanel.this);
+        listingGroupe.execute();
 
         // inclus les layout à l'activité
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -51,7 +66,7 @@ public class MainActivityPanel extends AppCompatActivity
         // récuperation des info du membre connecté
         sessionManager = new SessionManager(getApplicationContext());
         sessionManager.checkLogin();
-        HashMap<String,String> membreDetails = sessionManager.getInformations();
+        membreDetails = sessionManager.getInformations();
         String nomPrenom = membreDetails.get(SessionManager.KEY_NOM) + " " + membreDetails.get(SessionManager.KEY_PRENOM);
         String email = membreDetails.get(SessionManager.KEY_EMAIL);
 
@@ -63,6 +78,7 @@ public class MainActivityPanel extends AppCompatActivity
         tvNomPrenom.setText(nomPrenom);
         tvEmail = (TextView) navigationViewHeader.findViewById(R.id.tvMailNavBar);
         tvEmail.setText(email);
+
         // END /!\
 
 
@@ -125,8 +141,12 @@ public class MainActivityPanel extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private class ListingGroupe extends AsyncTask<String,Integer,Boolean> {
 
+    private class ListingGroupe extends AsyncTask<String,Integer,Boolean> {
+        ArrayAdapter<String> adapter;
+        public ListingGroupe(MainActivityPanel lien){
+
+        }
 
         @Override
         protected void onPreExecute() {
@@ -135,16 +155,34 @@ public class MainActivityPanel extends AppCompatActivity
 
         @Override
         protected Boolean doInBackground(String... params) {
-            return null;
+            Boolean result = false;
+
+            ContientDAO contientDAO = new ContientDAO();
+            try {
+                int id_membre = Integer.parseInt(membreDetails.get(SessionManager.KEY_ID_MEMBRE));
+                //Contient contient = new Contient(id_membre);
+                List listG = contientDAO.readGroupsByMember(id_membre);
+
+                adapter = new ArrayAdapter<String>(MainActivityPanel.this,android.R.layout.simple_list_item_1, listG);
+
+                return true;
+            }catch (Exception e){
+                System.err.println(e.toString());
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            listGroup.setAdapter(adapter);
+
+            super.onPostExecute(aBoolean);
         }
 
         @Override
         protected void onProgressUpdate(Integer... values) {super.onProgressUpdate(values);}
 
-        @Override
-        protected void onPostExecute(Boolean aBoolean) {
-            super.onPostExecute(aBoolean);
-        }
+
 
         @Override
         protected void onCancelled() { super.onCancelled();}
