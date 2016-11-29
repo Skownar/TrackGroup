@@ -54,11 +54,11 @@ public class Groupe implements Parcelable {
 
     @Override
     public String toString() {
-        return "Groupe{" +
+        return nom;/*"Groupe{" +
                 "id_groupe=" + id_groupe +
                 ", nom_groupe='" + nom + '\'' +
                 ", id_admin=" + id_admin +
-                '}';
+                '}';*/
     }
 
     @Override
