@@ -32,5 +32,5 @@ public interface DAO<T> {
     T readById();
     int create(T obj);
     boolean delete();
-    boolean update();
+    boolean update(T obj);
 }

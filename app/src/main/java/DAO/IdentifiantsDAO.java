@@ -53,7 +53,7 @@ public class IdentifiantsDAO extends BaseDAO implements DAO<Groupe>{
     }
 
     @Override
-    public boolean update() {
+    public boolean update(Groupe obj) {
         return false;
     }
 }

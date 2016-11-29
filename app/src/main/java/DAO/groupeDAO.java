@@ -46,7 +46,7 @@ public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
     }
 
     @Override
-    public boolean update() {
+    public boolean update(Groupe groupe) {
         return false;
     }
 
