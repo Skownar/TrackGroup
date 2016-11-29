@@ -70,12 +70,12 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
     }
 
     @Override
-    public boolean delete() {
-        return true;
+    public boolean delete(int id) {
+        return false;
     }
 
     @Override
-    public boolean update() {
+    public boolean update(Membre obj) {
         return false;
     }
 }

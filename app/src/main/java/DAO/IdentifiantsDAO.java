@@ -48,12 +48,12 @@ public class IdentifiantsDAO extends BaseDAO implements DAO<Groupe>{
     }
 
     @Override
-    public boolean delete() {
+    public boolean delete(int id) {
         return false;
     }
 
     @Override
-    public boolean update() {
+    public boolean update(Groupe obj) {
         return false;
     }
 }

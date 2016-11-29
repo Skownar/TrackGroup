@@ -31,6 +31,6 @@ public interface DAO<T> {
     ArrayList<T> readAll();
     T readById();
     int create(T obj);
-    boolean delete();
-    boolean update();
+    boolean delete(int id);
+    boolean update(T obj);
 }
