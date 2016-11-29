@@ -81,16 +81,18 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
         try{
             json = gson.toJson(membre);
             System.out.println("Object to json = " + json);
+
+            System.out.println("test debug ");
+            response = service.path("gestionMembre/").path("updateGroupeMembre/").type("application/json").post(ClientResponse.class,json);
+
+            int status = response.getStatus();
+            System.out.println("Statut : "+status);
            // return true;
         }catch (Exception e){
             System.err.println("convertion json failed "+ e);
             //return false;
         }
-        System.out.println("test debug ");
-        response = service.path("gestionMembre/").path("updateGroupeMembre/").type("application/json").put(ClientResponse.class,json);
 
-        int status = response.getStatus();
-        System.out.println("Statut : "+status);
 
 
         return true;

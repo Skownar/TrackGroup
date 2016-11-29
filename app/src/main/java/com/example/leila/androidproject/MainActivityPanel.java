@@ -94,6 +94,41 @@ public class MainActivityPanel extends AppCompatActivity
                     startActivity(t);
                 }
         );
+        int id_membre = Integer.parseInt(membreDetails.get(SessionManager.KEY_ID_MEMBRE));
+
+        listGroup.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
+                Groupe gr = (Groupe) arg0.getItemAtPosition(arg2);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivityPanel.this);
+                alertDialogBuilder.setMessage("Se connecter au groupe : "+gr.getNom_groupe()+" ?");
+
+                alertDialogBuilder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Membre membre = new Membre(id_membre ,gr.getId_groupe());
+
+                        MembreDAO membreDAO= new MembreDAO();
+                        try{
+                            boolean bool = membreDAO.update(membre);
+                            if(bool){
+                                System.out.println("Ok");
+                            }
+                        }catch (Exception e){
+                            System.err.println(e);
+                        }
+                        //Toast.makeText(MainActivityPanel.this,"OUIIIIIII",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
+
+
+            }
+        });
     }
 
     @Override
@@ -149,7 +184,7 @@ public class MainActivityPanel extends AppCompatActivity
 
     private class ListingGroupe extends AsyncTask<String,Integer,Boolean> {
         ArrayAdapter<String> adapter;
-        int id_membre;
+        //int id_membre;
 
         public ListingGroupe(MainActivityPanel lien){
 
@@ -166,7 +201,7 @@ public class MainActivityPanel extends AppCompatActivity
 
             ContientDAO contientDAO = new ContientDAO();
             try {
-                id_membre = Integer.parseInt(membreDetails.get(SessionManager.KEY_ID_MEMBRE));
+                int id_membre = Integer.parseInt(membreDetails.get(SessionManager.KEY_ID_MEMBRE));
                 //Contient contient = new Contient(id_membre);
                 List listG = contientDAO.readGroupsByMember(id_membre);
 
@@ -183,39 +218,7 @@ public class MainActivityPanel extends AppCompatActivity
         protected void onPostExecute(Boolean aBoolean) {
             listGroup.setAdapter(adapter);
 
-            listGroup.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-                @Override
-                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
-                    Groupe gr = (Groupe) arg0.getItemAtPosition(arg2);
 
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivityPanel.this);
-                    alertDialogBuilder.setMessage("Se connecter au groupe : "+gr.getNom_groupe()+" ?");
-
-                    alertDialogBuilder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            Membre membre = new Membre(id_membre ,gr.getId_groupe());
-
-                            MembreDAO membreDAO= new MembreDAO();
-                            try{
-                                boolean bool = membreDAO.update(membre);
-                                if(bool){
-                                    System.out.println("Ok");
-                                }
-                            }catch (Exception e){
-                                System.err.println(e);
-                            }
-                            //Toast.makeText(MainActivityPanel.this,"OUIIIIIII",Toast.LENGTH_LONG).show();
-                        }
-                    });
-
-                    AlertDialog alertDialog = alertDialogBuilder.create();
-                    alertDialog.show();
-
-
-
-                }
-            });
 
             super.onPostExecute(aBoolean);
         }
