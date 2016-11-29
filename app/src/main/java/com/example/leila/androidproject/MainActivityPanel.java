@@ -63,7 +63,6 @@ public class MainActivityPanel extends AppCompatActivity
         tvNomPrenom.setText(nomPrenom);
         tvEmail = (TextView) navigationViewHeader.findViewById(R.id.tvMailNavBar);
         tvEmail.setText(email);
-
         // END /!\
 
 
