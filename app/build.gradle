@@ -36,6 +36,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.android.support:design:24.2.1'
-    compile files('src/main/java/pubnub-4.2.0-all.jar')
     compile files('src/main/java/jersey-bundle-1.14.jar')
+    compile files('src/main/java/pubnub-4.2.0-all.jar')
 }

@@ -53,7 +53,7 @@ public class ContientDAO  extends BaseDAO implements DAO<Contient>  {
     }
 
     @Override
-    public boolean update() {
+    public boolean update(Contient obj) {
         return false;
     }
 }

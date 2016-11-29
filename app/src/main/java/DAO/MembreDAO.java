@@ -70,12 +70,29 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public boolean delete() {
+        return true;
     }
 
     @Override
-    public boolean update(Membre obj) {
-        return false;
+    public boolean update(Membre membre) {
+        System.out.println("--- Update member method ---");
+        json = "";
+        try{
+            json = gson.toJson(membre);
+            System.out.println("Object to json = " + json);
+           // return true;
+        }catch (Exception e){
+            System.err.println("convertion json failed "+ e);
+            //return false;
+        }
+        System.out.println("test debug ");
+        response = service.path("gestionMembre/").path("updateGroupeMembre/").type("application/json").put(ClientResponse.class,json);
+
+        int status = response.getStatus();
+        System.out.println("Statut : "+status);
+
+
+        return true;
     }
 }

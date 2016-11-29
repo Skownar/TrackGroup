@@ -2,11 +2,13 @@ package com.example.leila.androidproject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,9 +18,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +30,7 @@ import java.util.List;
 
 import DAO.ContientDAO;
 import DAO.GroupeDAO;
+import DAO.MembreDAO;
 
 /**
  * Created by lafer on 28-11-16.
@@ -144,6 +149,8 @@ public class MainActivityPanel extends AppCompatActivity
 
     private class ListingGroupe extends AsyncTask<String,Integer,Boolean> {
         ArrayAdapter<String> adapter;
+        int id_membre;
+
         public ListingGroupe(MainActivityPanel lien){
 
         }
@@ -159,7 +166,7 @@ public class MainActivityPanel extends AppCompatActivity
 
             ContientDAO contientDAO = new ContientDAO();
             try {
-                int id_membre = Integer.parseInt(membreDetails.get(SessionManager.KEY_ID_MEMBRE));
+                id_membre = Integer.parseInt(membreDetails.get(SessionManager.KEY_ID_MEMBRE));
                 //Contient contient = new Contient(id_membre);
                 List listG = contientDAO.readGroupsByMember(id_membre);
 
@@ -175,6 +182,40 @@ public class MainActivityPanel extends AppCompatActivity
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             listGroup.setAdapter(adapter);
+
+            listGroup.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
+                    Groupe gr = (Groupe) arg0.getItemAtPosition(arg2);
+
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivityPanel.this);
+                    alertDialogBuilder.setMessage("Se connecter au groupe : "+gr.getNom_groupe()+" ?");
+
+                    alertDialogBuilder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            Membre membre = new Membre(id_membre ,gr.getId_groupe());
+
+                            MembreDAO membreDAO= new MembreDAO();
+                            try{
+                                boolean bool = membreDAO.update(membre);
+                                if(bool){
+                                    System.out.println("Ok");
+                                }
+                            }catch (Exception e){
+                                System.err.println(e);
+                            }
+                            //Toast.makeText(MainActivityPanel.this,"OUIIIIIII",Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+
+
+
+                }
+            });
 
             super.onPostExecute(aBoolean);
         }

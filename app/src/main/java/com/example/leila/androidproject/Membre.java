@@ -40,7 +40,11 @@ public class Membre implements Parcelable{
 
     }
 
+    public Membre(int id_membre, int groupe_choisi) {
+        this.id_membre = id_membre;
+        this.groupe_choisi=groupe_choisi;
 
+    }
 
 
     public int getId_membre() {
