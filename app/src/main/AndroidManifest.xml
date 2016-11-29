@@ -23,7 +23,8 @@
         <activity
             android:name=".MainActivityPanel"
             android:label="@string/title_activity_main_panel"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ActivityGroupe"></activity>
     </application>
 
 </manifest>
