@@ -48,7 +48,7 @@ public class IdentifiantsDAO extends BaseDAO implements DAO<Groupe>{
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete() {
         return false;
     }
 

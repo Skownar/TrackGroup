@@ -20,11 +20,13 @@ public class CreaGroupe extends AppCompatActivity {
     private String nomGroupe;
     private TextView textOperation;
     private String exception;
-
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crea_groupe);
+        sessionManager = new SessionManager(getApplicationContext());
+        sessionManager.checkLogin();
         textOperation = (TextView) findViewById(R.id.textOperation);
         btnCreate = (Button) findViewById(R.id.btnCreaGroupe);
         btnCreate.setOnClickListener(v -> {
@@ -63,7 +65,7 @@ public class CreaGroupe extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(String... params) {
-            Groupe groupe = new Groupe(0, nomGroupe, 41);
+            Groupe groupe = new Groupe(0, nomGroupe, sessionManager.getKeyIdMembre());
             GroupeDAO groupeDAO = new GroupeDAO();
             try {
                 int i = groupeDAO.create(groupe);
@@ -84,7 +86,7 @@ public class CreaGroupe extends AppCompatActivity {
             btnCreate.setEnabled(true);
             if (aBoolean) {
                 Toast.makeText(getApplicationContext(), "Creation reussie", Toast.LENGTH_LONG).show();
-                Intent t = new Intent(CreaGroupe.this, MainActivity.class);
+                Intent t = new Intent(CreaGroupe.this, MainActivityPanel.class);
                 startActivity(t);
             } else
                 Toast.makeText(getApplicationContext(), ExceptionManager.checkError(), Toast.LENGTH_LONG).show();

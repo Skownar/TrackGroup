@@ -24,13 +24,9 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
 
     private static final String PREF_NAME = "UserInfos";
-
     private static final String IS_LOGIN = "IsLoggedIn";
-
     public static final String KEY_ID_MEMBRE = "id_membre";
-
     public static final String KEY_NOM = "nom";
-
     public static final String KEY_PRENOM = "prenom";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_PSEUDO = "pseudo";
@@ -60,9 +56,12 @@ public class SessionManager {
         editor.putString(KEY_LOCALISATION,localisation);
         editor.commit();
     }
-    public void setKeyGroupeChoisi(int groupeChoisi ){
-        editor.putInt(KEY_GROUPE_CHOISI,groupeChoisi);
+    public void setKeyGroupeChoisi(String groupeChoisi ){
+        editor.putString(KEY_GROUPE_CHOISI,groupeChoisi);
         editor.commit();
+    }
+    public int getKeyIdMembre(){
+        return prefs.getInt(KEY_ID_MEMBRE,0);
     }
     // TODO verifier que comme la localisation et le groupe choisi n'est pas défini à la connexion, qu'il ne faut pas rappeler cette méthode une fois ces deux parametres défini
     public HashMap<String,String> getInformations(){

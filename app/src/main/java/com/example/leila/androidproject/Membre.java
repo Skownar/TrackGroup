@@ -113,16 +113,11 @@ public class Membre implements Parcelable{
 
     @Override
     public String toString() {
-        return "Membre{" +
-                "id_membre=" + id_membre +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", email='" + email + '\'' +
-                ", pseudo='" + pseudo + '\'' +
-                ", mdp='" + mdp + '\'' +
-                ", localisation='" + localisation + '\'' +
-                ", groupe_choisi=" + groupe_choisi +
-                '}';
+        return nom+" "+prenom+" ( "+pseudo+" )";
+    }
+
+    public String customToString(){
+        return pseudo;
     }
 
     @Override

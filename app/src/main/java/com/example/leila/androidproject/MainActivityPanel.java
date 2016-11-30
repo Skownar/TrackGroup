@@ -47,8 +47,8 @@ public class MainActivityPanel extends AppCompatActivity
     HashMap<String,String> membreDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); // NE SURTOUT PAS SUPP ANTHO !!!!
-        StrictMode.setThreadPolicy(policy);   // NE SURTOUT PAS SUPPRIMER ANTHO !!!!
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); // OK FRERE
+        StrictMode.setThreadPolicy(policy);   // OK FRERE
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_panel);
@@ -108,25 +108,23 @@ public class MainActivityPanel extends AppCompatActivity
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivityPanel.this);
                 alertDialogBuilder.setMessage("Se connecter au groupe : "+gr.getNom_groupe()+" ?");
 
-                alertDialogBuilder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        Membre membre = new Membre(id_membre,"","","","","","" ,gr.getId_groupe());
+                alertDialogBuilder.setPositiveButton("OUI", (arg01, arg11) -> {
+                    Membre membre = new Membre(id_membre,"","","","","","" ,gr.getId_groupe());
 
-                        MembreDAO membreDAO= new MembreDAO();
-                        try{
-                            boolean bool = membreDAO.update(membre);
-                            if(bool){
-                                System.out.println("Ok");
-                                Toast.makeText(getApplicationContext(),"Vous avez bien rejoinds le groupe "+gr.getNom_groupe(),Toast.LENGTH_LONG).show();
-                                Intent t = new Intent(MainActivityPanel.this,AffMembresGroupe.class);
-                                startActivity(t);
-                            }
-                        }catch (Exception e){
-                            System.err.println(e);
+                    MembreDAO membreDAO= new MembreDAO();
+                    try{
+                        boolean bool = membreDAO.update(membre);
+                        if(bool){
+                            System.out.println("Ok");
+                            Toast.makeText(getApplicationContext(),"Vous avez bien rejoinds le groupe "+gr.getNom_groupe(),Toast.LENGTH_LONG).show();
+                            sessionManager.setKeyGroupeChoisi(Integer.toString((gr.getId_groupe())));
+                            Intent t = new Intent(MainActivityPanel.this,AffMembresGroupe.class);
+                            startActivity(t);
                         }
-                        //Toast.makeText(MainActivityPanel.this,"OUIIIIIII",Toast.LENGTH_LONG).show();
+                    }catch (Exception e){
+                        System.err.println(e);
                     }
+                    //Toast.makeText(MainActivityPanel.this,"OUIIIIIII",Toast.LENGTH_LONG).show();
                 });
 
                 AlertDialog alertDialog = alertDialogBuilder.create();
