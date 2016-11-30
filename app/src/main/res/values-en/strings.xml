@@ -10,5 +10,8 @@
     <string name="labelEmail">Email</string>
     <string name="labelPseudo">Username</string>
     <string name="labelMdp">Password</string>
+    <string name="labelGroupe">Groupe</string>
     <string name="btnEnvoi">Send</string>
+    <string name="afficherCarte">Show the cart</string>
+    <string name="inviterMembre">Invite member</string>
 </resources>

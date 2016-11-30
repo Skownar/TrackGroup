@@ -11,11 +11,15 @@
     <string name="labelPseudo">Pseudo</string>
     <string name="labelMdp">Mot de passe</string>
     <string name="btnEnvoi">Envoi</string>
+    <string name="labelGroupe">Groupe</string>
 
     <string name="titleAuthentification">Authentification</string>
     <string name="btnConnexion">se connecter</string>
     <string name="btnInscrire">s\'inscrire</string>
     <string name="title_activity_test_drawer">TestDrawerActivity</string>
+
+    <string name="afficherCarte">Afficher la carte</string>
+    <string name="inviterMembre">Inviter un membre</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

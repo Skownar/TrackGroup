@@ -2,6 +2,7 @@ package DAO;
 
 import com.example.leila.androidproject.Contient;
 import com.example.leila.androidproject.Groupe;
+import com.example.leila.androidproject.Membre;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,23 @@ public class ContientDAO  extends BaseDAO implements DAO<Contient>  {
         }
 
         return listeGroupe.getItems();
+    }
+
+    public List<Membre> readMembersByGroup(int idGroupe) {
+        System.out.println("---  read members by group method  ---");
+
+        ListeMembre listeMembre = new ListeMembre();
+        try {
+            System.out.println("Id groupe : "+idGroupe);
+            String listeJson = service.path("gestContient/").path("getListeMembre/"+idGroupe).get(String.class);
+            System.out.println(listeJson.toString());
+            listeMembre = gson.fromJson(listeJson, ListeMembre.class);
+        } catch (Exception e) {
+            System.err.println(e);
+            listeMembre.setItems(null);
+        }
+
+        return listeMembre.getItems();
     }
 
 
