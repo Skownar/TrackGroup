@@ -47,8 +47,8 @@ public class MainActivityPanel extends AppCompatActivity
     HashMap<String,String> membreDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); // NE SURTOUT PAS SUPP ANTHO !!!!
+        StrictMode.setThreadPolicy(policy);   // NE SURTOUT PAS SUPPRIMER ANTHO !!!!
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_panel);
@@ -119,7 +119,7 @@ public class MainActivityPanel extends AppCompatActivity
                             if(bool){
                                 System.out.println("Ok");
                                 Toast.makeText(getApplicationContext(),"Vous avez bien rejoinds le groupe "+gr.getNom_groupe(),Toast.LENGTH_LONG).show();
-                                Intent t = new Intent(getApplicationContext(),MainActivityPanel.class);
+                                Intent t = new Intent(MainActivityPanel.this,AffMembresGroupe.class);
                                 startActivity(t);
                             }
                         }catch (Exception e){
