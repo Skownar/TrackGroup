@@ -25,7 +25,9 @@
             android:label="@string/title_activity_main_panel"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ActivityGroupe" />
-        <activity android:name=".AffMembresGroupe"></activity>
+        <activity android:name=".AffMembresGroupe" />
+        <activity android:name=".AfficherCarte" />
+        <activity android:name=".InviterMembre"></activity>
     </application>
 
 </manifest>

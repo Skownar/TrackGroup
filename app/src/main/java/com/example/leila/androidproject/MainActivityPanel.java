@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -46,6 +47,9 @@ public class MainActivityPanel extends AppCompatActivity
     HashMap<String,String> membreDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_panel);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -107,13 +111,16 @@ public class MainActivityPanel extends AppCompatActivity
                 alertDialogBuilder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        Membre membre = new Membre(id_membre ,gr.getId_groupe());
+                        Membre membre = new Membre(id_membre,"","","","","","" ,gr.getId_groupe());
 
                         MembreDAO membreDAO= new MembreDAO();
                         try{
                             boolean bool = membreDAO.update(membre);
                             if(bool){
                                 System.out.println("Ok");
+                                Toast.makeText(getApplicationContext(),"Vous avez bien rejoinds le groupe "+gr.getNom_groupe(),Toast.LENGTH_LONG).show();
+                                Intent t = new Intent(getApplicationContext(),MainActivityPanel.class);
+                                startActivity(t);
                             }
                         }catch (Exception e){
                             System.err.println(e);

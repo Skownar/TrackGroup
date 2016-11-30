@@ -8,6 +8,7 @@ import com.sun.jersey.api.client.WebResource;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriBuilder;
@@ -83,18 +84,18 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
             System.out.println("Object to json = " + json);
 
             System.out.println("test debug ");
-            response = service.path("gestionMembre/").path("updateGroupeMembre/").type("application/json").post(ClientResponse.class,json);
+            response = service.path("gestionMembre").path("updateGroupeMembre/").type("application/json").put(ClientResponse.class,json);
 
             int status = response.getStatus();
             System.out.println("Statut : "+status);
-           // return true;
+            return true;
         }catch (Exception e){
             System.err.println("convertion json failed "+ e);
-            //return false;
+            return false;
         }
 
 
 
-        return true;
+        //return true;
     }
 }
