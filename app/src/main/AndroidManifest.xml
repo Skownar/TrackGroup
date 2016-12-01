@@ -3,6 +3,11 @@
     package="com.example.leila.androidproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,22 +17,28 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".CreaGroupe" />
-        <activity android:name=".Authentification">
+        <activity android:name=".Authentification" android:label="Authentification">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreaMembre" />
+        <activity android:name=".CreaMembre" android:label="Creation Membre"/>
         <activity
             android:name=".MainActivityPanel"
-            android:label="@string/title_activity_main_panel"
+            android:label="Groupee"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ActivityGroupe" />
-        <activity android:name=".AffMembresGroupe" />
-        <activity android:name=".AfficherCarte" />
-        <activity android:name=".InviterMembre"></activity>
+        <activity android:name=".AffMembresGroupe" android:label="" />
+        <activity android:name=".AfficherCarte" android:label="Afficher Carte"/>
+        <activity android:name=".InviterMembre" android:label="Inviter Membre"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDhZ2lh3413i7lk5-zTs4TZve6UrglPaIw" />
     </application>
 
 </manifest>

@@ -10,6 +10,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
         jackOptions {
             enabled true
         }
@@ -37,5 +39,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.android.support:design:24.2.1'
     compile files('src/main/java/jersey-bundle-1.14.jar')
-    compile files('src/main/java/pubnub-4.2.0-all.jar')
+    compile 'com.google.android.gms:play-services:6.5.87'
+    compile files('src/main/java/Pubnub-Android-3.7.10.jar')
 }
