@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="titleCreateGroupe">New groupe</string>
+    <string name="titleCreateGroupe">New group</string>
     <string name="labelNouvGroupe">Name of the group</string>
     <string name="btnCreaGroupe">Create a group</string>
 
@@ -10,8 +10,20 @@
     <string name="labelEmail">Email</string>
     <string name="labelPseudo">Username</string>
     <string name="labelMdp">Password</string>
-    <string name="labelGroupe">Groupe</string>
+    <string name="labelGroupe">Group</string>
     <string name="btnEnvoi">Send</string>
-    <string name="afficherCarte">Show the cart</string>
+
+    <string name="titleAuthentification">Authentification</string>
+    <string name="btnConnexion">log on</string>
+    <string name="btnInscrire">sign up</string>
+    <string name="title_activity_test_drawer">TestDrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="afficherCarte">See map</string>
     <string name="inviterMembre">Invite member</string>
+    <string name="activiteGroupe">Group\'s activity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_panel">Accueil</string>
 </resources>

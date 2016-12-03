@@ -39,7 +39,7 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/inputMdp"
-        android:text="@string/labelMdp"
+        android:hint="@string/labelMdp"
         android:layout_below="@+id/labelMdp"
         android:layout_alignLeft="@+id/inputPseudo"
         android:layout_alignStart="@+id/inputPseudo" />
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/labelPseudo"
+        android:hint="@string/labelPseudo"
         android:ems="10"
         android:id="@+id/inputPseudo"
         android:layout_marginLeft="39dp"

@@ -73,7 +73,7 @@ public class AffMembresGroupe extends AppCompatActivity {
             try {
                 int id_groupe = Integer.parseInt(membreDetails.get(SessionManager.KEY_GROUPE_CHOISI));
 
-                //System.out.println("TESSSSSSSSSSSST");
+                System.out.println("TESSSSSSSSSSSST : " +id_groupe);
                 List listMemb = contientDAO.readMembersByGroup(id_groupe);
 
                 adapter = new ArrayAdapter<String>(AffMembresGroupe.this,android.R.layout.simple_list_item_1, listMemb);

@@ -47,7 +47,7 @@ public class MainActivityPanel extends AppCompatActivity
     HashMap<String,String> membreDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); // OK FRERE
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); // MERCIIIII !
         StrictMode.setThreadPolicy(policy);   // OK FRERE
 
         super.onCreate(savedInstanceState);

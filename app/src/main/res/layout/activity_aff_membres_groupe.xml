@@ -31,16 +31,24 @@
         android:layout_below="@id/labelGroupe"/>
 
     <Button
+        android:id="@+id/activiteGroupe"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/activiteGroupe"
+        android:layout_below="@id/listMembers"
+        />
+
+    <Button
         android:id="@+id/btnAfficherCarte"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="60dp"
         android:text="@string/afficherCarte"
-        android:layout_below="@id/listMembers"
+        android:layout_below="@id/activiteGroupe"
         />
     <Button
         android:id="@+id/btnInviterMembre"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="60dp"
         android:text="@string/inviterMembre"
         android:layout_alignParentBottom="true"
         android:layout_below="@id/btnAfficherCarte"
