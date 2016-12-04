@@ -2,6 +2,7 @@ package DAO;
 
 import android.net.Uri;
 
+import com.example.leila.androidproject.Activite;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.uri.UriBuilderImpl;
@@ -30,7 +31,12 @@ public interface DAO<T> {
      */
     ArrayList<T> readAll();
     T readById();
-    int create(T obj);
+    int create(T act);
+
+    static int create(Activite obj);
+
+    static int create(Activite obj);
+
     boolean delete();
     boolean update(T obj);
 }
