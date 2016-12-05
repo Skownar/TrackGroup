@@ -1,7 +1,9 @@
-package com.example.leila.androidproject;
+package Metier;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import Metier.Groupe;
 
 /**
  * Created by stephanie on 01-12-16.
@@ -75,14 +77,14 @@ import android.os.Parcelable;
             dest.writeString(dateact);
             dest.writeInt(idgroupe);
         }
-        public static final Parcelable.Creator<com.example.leila.androidproject.Groupe> CREATOR = new Parcelable.Creator<com.example.leila.androidproject.Groupe>() {
+        public static final Parcelable.Creator<Groupe> CREATOR = new Parcelable.Creator<Groupe>() {
             @Override
-            public com.example.leila.androidproject.Groupe createFromParcel(Parcel source) {
-                return new com.example.leila.androidproject.Groupe(source);
+            public Groupe createFromParcel(Parcel source) {
+                return new Groupe(source);
             }
             @Override
-            public com.example.leila.androidproject.Groupe[] newArray(int size) {
-                return new com.example.leila.androidproject.Groupe[size];
+            public Groupe[] newArray(int size) {
+                return new Groupe[size];
             }
         };
 

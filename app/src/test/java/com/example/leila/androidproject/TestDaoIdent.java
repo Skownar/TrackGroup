@@ -4,6 +4,7 @@ import org.json.JSONException;
 
 import DAO.Identifiants;
 import DAO.IdentifiantsDAO;
+import Metier.Membre;
 
 /**
  * Created by lafer on 20-11-16.

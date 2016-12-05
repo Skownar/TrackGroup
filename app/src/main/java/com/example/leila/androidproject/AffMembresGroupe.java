@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,7 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import DAO.ContientDAO;
-import DAO.MembreDAO;
+import Managers.CheckManager;
+import Managers.SessionManager;
 
 public class AffMembresGroupe extends AppCompatActivity {
     TextView labelAffG;
@@ -40,6 +39,14 @@ public class AffMembresGroupe extends AppCompatActivity {
         sessionManager.checkLogin();
         membreDetails = sessionManager.getInformations();
 
+        //Check Permissions to map
+        final CheckManager checkPermissions = new CheckManager(this);
+        if(!checkPermissions.hasPermissions()){
+            checkPermissions.askPermissions();
+        }
+
+
+
        // labelAffG.setText(membreDetails.get(SessionManager.KEY_GROUPE_CHOISI));
 
         ListingMembres listingMembres = new ListingMembres(AffMembresGroupe.this);
@@ -47,8 +54,11 @@ public class AffMembresGroupe extends AppCompatActivity {
 
 
         btnAfficherCarte.setOnClickListener(view -> {
-                    Intent t = new Intent(this,AfficherCarte.class);
-                    startActivity(t);
+                    if (checkPermissions.hasPermissions()) {
+                        Intent t = new Intent(this, AfficherCarte.class);
+                        startActivity(t);
+                        finish();
+                    }
                 }
         );
 

@@ -1,16 +1,8 @@
 package DAO;
 
-import android.net.Uri;
+import Metier.Activite;
 
-import com.example.leila.androidproject.Activite;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.uri.UriBuilderImpl;
-
-import java.net.URI;
 import java.util.ArrayList;
-
-import javax.ws.rs.core.UriBuilder;
 
 /**
  * Created by lafer on 16-11-16.

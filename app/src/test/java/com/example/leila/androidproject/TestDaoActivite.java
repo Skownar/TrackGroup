@@ -3,6 +3,7 @@ package com.example.leila.androidproject;
 import java.util.ArrayList;
 
 import DAO.ActiviteDAO;
+import Metier.Activite;
 
 /**
  * Created by stephanie on 01-12-16.

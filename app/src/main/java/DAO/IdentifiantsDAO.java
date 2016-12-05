@@ -1,15 +1,11 @@
 package DAO;
 
-import com.example.leila.androidproject.Groupe;
-import com.example.leila.androidproject.Membre;
+import Metier.Groupe;
+import Metier.Membre;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import javax.ws.rs.core.MediaType;
 
 /**
  * Created by lafer on 20-11-16.

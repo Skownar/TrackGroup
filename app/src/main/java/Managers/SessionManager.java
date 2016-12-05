@@ -1,10 +1,14 @@
-package com.example.leila.androidproject;
+package Managers;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.example.leila.androidproject.Authentification;
+
 import java.util.HashMap;
+
+import Metier.Membre;
 
 /**
  * Created by lafer on 21-11-16.
@@ -63,6 +67,8 @@ public class SessionManager {
     public int getKeyIdMembre(){
         return prefs.getInt(KEY_ID_MEMBRE,0);
     }
+
+    public String getKeyPseudo(){return prefs.getString(KEY_PSEUDO,null);}
     // TODO verifier que comme la localisation et le groupe choisi n'est pas défini à la connexion, qu'il ne faut pas rappeler cette méthode une fois ces deux parametres défini
     public HashMap<String,String> getInformations(){
         HashMap<String,String> infos = new HashMap<>();

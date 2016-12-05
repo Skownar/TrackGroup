@@ -1,6 +1,6 @@
 package DAO;
 
-import com.example.leila.androidproject.Activite;
+import Metier.Activite;
 
 import java.util.ArrayList;
 

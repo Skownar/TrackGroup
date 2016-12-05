@@ -1,8 +1,7 @@
 package com.example.leila.androidproject;
 
-import com.example.leila.androidproject.Groupe;
+import Metier.Groupe;
 
-import java.nio.channels.Pipe;
 import java.util.ArrayList;
 
 import DAO.GroupeDAO;
