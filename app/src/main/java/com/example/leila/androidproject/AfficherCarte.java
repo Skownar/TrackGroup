@@ -120,8 +120,8 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
     public void onConnected(Bundle bundle) {
         System.out.println("Connexion à requestLocationUpdates");
         locationRequest = new LocationRequest();
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2500);
+        locationRequest.setInterval(1500);
+        locationRequest.setFastestInterval(1000);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
         initalizeMyMarker();
