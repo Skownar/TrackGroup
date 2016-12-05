@@ -25,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import Managers.AsyncTaskTools;
 import Managers.PubNubManager;
@@ -62,7 +63,6 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
         SessionManager sessionManager = new SessionManager(getApplicationContext());
         meUser.uuid = sessionManager.getKeyPseudo();
         nomCanal = "Conal";
-
 
 
         // récupération du fragment et synchronisation avec la map
@@ -120,8 +120,8 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
     public void onConnected(Bundle bundle) {
         System.out.println("Connexion à requestLocationUpdates");
         locationRequest = new LocationRequest();
-        locationRequest.setInterval(10000);
-        locationRequest.setFastestInterval(5000);
+        locationRequest.setInterval(5000);
+        locationRequest.setFastestInterval(2500);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
         initalizeMyMarker();
@@ -130,17 +130,17 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
 
     private void initalizeMyMarker() {
         System.out.println("initialisation marker");
-/*
+
         _googleMap.clear();
         meUser.marker = _googleMap.addMarker(
                 new MarkerOptions()
                         .position(new LatLng(0, 0))
                         .title("it's me")
-        );*/
+        );
     }
 
     private void updateMyMarker() {
-        /*
+
         _googleMap.clear();
         if (meUser.marker != null)
             meUser.marker.remove();
@@ -148,7 +148,7 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
                 new MarkerOptions()
                         .position(new LatLng(meUser.lat, meUser.lon))
                         .title("it's me")
-        );*/
+        );
     }
 
     @Override
@@ -190,7 +190,7 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
         protected void onPostExecute(Utilisateurs utilisateurs) {
             super.onPostExecute(utilisateurs);
             meUser = utilisateurs;
-            // updateMyMarker();
+            updateMyMarker();
 
         }
     }
@@ -211,8 +211,12 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
             int posInList = 0;
             try {
                 u.lat = _message.getDouble("lat");
-                u.lon = _message.getDouble("lat");
+                u.lon = _message.getDouble("lng");
                 u.uuid = _message.getString("uuid");
+                if (meUser.equals(u.uuid))
+                    return null;
+
+                System.out.println(u);
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
@@ -235,15 +239,18 @@ public class AfficherCarte extends AppCompatActivity implements OnMapReadyCallba
 
         @Override
         protected void onPostExecute(Utilisateurs user) {
-            _googleMap.clear();
-            //updateMyMarker();
-            for (Utilisateurs u : listUtilisateurs){
-                u.marker =  _googleMap.addMarker(
-                        new MarkerOptions()
-                                .position(new LatLng(u.lat, u.lon))
-                                .title(u.uuid)
-                );
+            if (user != null) {
+                _googleMap.clear();
+                updateMyMarker();
+                for (Utilisateurs u : listUtilisateurs) {
+                    u.marker = _googleMap.addMarker(
+                            new MarkerOptions()
+                                    .position(new LatLng(u.lat, u.lon))
+                                    .title(u.uuid)
+                    );
 
+                }
             }
         }
-    }}
+    }
+}
