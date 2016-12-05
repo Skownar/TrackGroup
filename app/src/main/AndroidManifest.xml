@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDhZ2lh3413i7lk5-zTs4TZve6UrglPaIw"></meta-data>
         <activity android:name=".MainActivity" />
@@ -33,12 +36,7 @@
         <activity android:name=".AffMembresGroupe" android:label="" />
         <activity android:name=".AfficherCarte" android:label="Afficher Carte"/>
         <activity android:name=".InviterMembre" android:label="Inviter Membre"/>
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDhZ2lh3413i7lk5-zTs4TZve6UrglPaIw" />
+
     </application>
 
 </manifest>

@@ -25,10 +25,6 @@ public interface DAO<T> {
     T readById();
     int create(T act);
 
-    static int create(Activite obj);
-
-    static int create(Activite obj);
-
     boolean delete();
     boolean update(T obj);
 }
