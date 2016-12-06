@@ -1,12 +1,17 @@
 package DAO;
 
 import com.example.leila.androidproject.Activite;
-import com.example.leila.androidproject.ExceptionManager;
+import com.google.gson.Gson;
+import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
 
+import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.UriBuilder;
 
 /**
  * Created by stephanie on 01-12-16.
@@ -22,14 +27,14 @@ public class ActiviteDAO extends BaseDAO implements DAO<Activite> {
     public ArrayList<Activite> readAll() {
 
         System.out.println(" read all activities");
-        ListeActivite listeActivite = new ListeActivite();
+        ListeActivite listeActivite;
         try {
             String listeJson = service.path("activiteService").path("read-{idgroupe}/").get(String.class);
             System.out.println(listeJson.toString());
             listeActivite = gson.fromJson(listeJson, ListeActivite.class);
         } catch (Exception e) {
             System.err.println(e);
-            listeActivite.setItems(null);
+            listeActivite= null;
         }
 
         return listeActivite.getItems();
@@ -52,7 +57,7 @@ public class ActiviteDAO extends BaseDAO implements DAO<Activite> {
         }catch (Exception e){
             System.err.println("convertion json failed "+ e);
         }
-        response = service.path("activiteService").path("create/").type("application/json").post(ClientResponse.class,json);
+        response = service.path("activiteService").path("createAct/").type("application/json").post(ClientResponse.class,json);
         int status = response.getStatus();
         MultivaluedMap header = response.getHeaders();
         if(status >= 400){

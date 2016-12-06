@@ -22,6 +22,13 @@ import android.os.Parcelable;
         this.idgroupe = idgroupe;
     }
 
+    public Activite(int idactivite, String titre, String description, String dateact) {
+        this.idactivite = idactivite;
+        this.titre = titre;
+        this.description = description;
+        this.dateact = dateact;
+
+    }
     public int getIdactivite() {
         return idactivite;
     }
