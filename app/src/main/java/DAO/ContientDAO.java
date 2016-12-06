@@ -1,8 +1,8 @@
 package DAO;
 
-import com.example.leila.androidproject.Contient;
-import com.example.leila.androidproject.Groupe;
-import com.example.leila.androidproject.Membre;
+import Metier.Contient;
+import Metier.Groupe;
+import Metier.Membre;
 
 import java.util.ArrayList;
 import java.util.List;

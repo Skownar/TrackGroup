@@ -1,17 +1,12 @@
 package DAO;
 
-import com.example.leila.androidproject.Membre;
-import com.google.gson.Gson;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
+import Metier.Membre;
 
-import java.net.URI;
+import com.sun.jersey.api.client.ClientResponse;
+
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.UriBuilder;
 
 /**
  * Created by Leïla on 18-11-16.

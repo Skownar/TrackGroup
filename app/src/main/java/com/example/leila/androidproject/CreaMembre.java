@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import DAO.MembreDAO;
+import Metier.Membre;
 
 /**
  * Created by Leïla on 17-11-16.

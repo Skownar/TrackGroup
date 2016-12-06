@@ -10,6 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import DAO.GroupeDAO;
+import Managers.ExceptionManager;
+import Managers.SessionManager;
+import Metier.Groupe;
 
 /**
  * Created by lafer on 15-11-16.

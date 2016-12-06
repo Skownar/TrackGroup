@@ -1,7 +1,7 @@
 package DAO;
 
-import com.example.leila.androidproject.ExceptionManager;
-import com.example.leila.androidproject.Groupe;
+import Managers.ExceptionManager;
+import Metier.Groupe;
 import com.sun.jersey.api.client.ClientResponse;
 
 import java.util.ArrayList;

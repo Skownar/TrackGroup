@@ -1,14 +1,10 @@
 package com.example.leila.androidproject;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -25,13 +21,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import DAO.ContientDAO;
-import DAO.GroupeDAO;
 import DAO.MembreDAO;
+import Managers.SessionManager;
+import Metier.Groupe;
+import Metier.Membre;
 
 /**
  * Created by lafer on 28-11-16.

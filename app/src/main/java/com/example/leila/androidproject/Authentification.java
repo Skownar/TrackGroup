@@ -6,16 +6,15 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 
-import java.util.Arrays;
-
 import DAO.Identifiants;
 import DAO.IdentifiantsDAO;
+import Managers.SessionManager;
+import Metier.Membre;
 
 /**
  * Created by lafer on 15-11-16.
