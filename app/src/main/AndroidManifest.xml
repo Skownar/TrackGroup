@@ -17,7 +17,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDhZ2lh3413i7lk5-zTs4TZve6UrglPaIw"></meta-data>
+            android:value="AIzaSyCMkuTUUFtjMq1ceJrJ0JXxFPy6xVH6a3Y"></meta-data>
         <activity android:name=".MainActivity" />
         <activity android:name=".CreaGroupe" />
         <activity android:name=".Authentification" android:label="Authentification">
