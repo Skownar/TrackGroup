@@ -26,4 +26,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_panel">Accueil</string>
+
+    <string name="labelInvite">Invite member</string>
+
 </resources>
