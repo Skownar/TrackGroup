@@ -8,13 +8,6 @@ import java.util.ArrayList;
 
 import javax.ws.rs.core.MultivaluedMap;
 
-/**
- * Created by lafer on 16-11-16.
- * <p>
- * Implémentation de l'interface dao
- * <p>
- * Variables en variables de classe pour éviter la redondance de code
- */
 
 public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
     
