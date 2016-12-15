@@ -28,7 +28,13 @@
 
     <string name="action_settings">Outils</string>
     <string name="title_activity_main_panel">Accueil</string>
-    
+
     <string name="labelInvite">Inviter membre</string>
-    
+
+
+    <string name="titleCreateActivite">Creation d\'activite</string>
+    <string name="labelTitre">Titre</string>
+    <string name="labelDescription">Description</string>
+    <string name="labelDateAct">Date Activite</string>
+
 </resources>

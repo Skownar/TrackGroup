@@ -31,6 +31,13 @@ import Metier.Groupe;
         this.dateact = dateact;
 
     }
+
+    public Activite(int idactivite, int idgroupe) {
+        this.idactivite = idactivite;
+        this.idgroupe=idgroupe;
+
+    }
+
     public int getIdactivite() {
         return idactivite;
     }
@@ -84,18 +91,24 @@ import Metier.Groupe;
             dest.writeString(dateact);
             dest.writeInt(idgroupe);
         }
-        public static final Parcelable.Creator<Groupe> CREATOR = new Parcelable.Creator<Groupe>() {
+        public static final Parcelable.Creator<Activite> CREATOR = new Parcelable.Creator<Activite>() {
             @Override
-            public Groupe createFromParcel(Parcel source) {
-                return new Groupe(source);
+            public Activite createFromParcel(Parcel in) {
+                return new Activite(in);
             }
             @Override
-            public Groupe[] newArray(int size) {
-                return new Groupe[size];
+            public Activite[] newArray(int size) {
+                return new Activite[size];
             }
         };
 
-
+        public Activite(Parcel in) {
+            idactivite = in.readInt();
+            titre = in.readString();
+            description = in.readString();
+            dateact = in.readString();
+            idgroupe = in.readInt();
+    }
 
 
 }

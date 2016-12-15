@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import DAO.GroupeDAO;
+import DAO.groupeDAO;
 import Managers.ExceptionManager;
 import Managers.SessionManager;
 import Metier.Groupe;
@@ -69,7 +69,7 @@ public class CreaGroupe extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... params) {
             Groupe groupe = new Groupe(0, nomGroupe, sessionManager.getKeyIdMembre());
-            GroupeDAO groupeDAO = new GroupeDAO();
+            groupeDAO groupeDAO = new groupeDAO();
             try {
                 int i = groupeDAO.create(groupe);
                 if (i < 1) {

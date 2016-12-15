@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import javax.ws.rs.core.MultivaluedMap;
 
 
-public class GroupeDAO extends BaseDAO implements DAO<Groupe> {
+public class groupeDAO extends BaseDAO implements DAO<Groupe> {
     
 
-    public GroupeDAO() {
+    public groupeDAO() {
         super();
     }
 

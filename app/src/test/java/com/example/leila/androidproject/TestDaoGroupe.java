@@ -4,7 +4,7 @@ import Metier.Groupe;
 
 import java.util.ArrayList;
 
-import DAO.GroupeDAO;
+import DAO.groupeDAO;
 
 /**
  * Created by lafer on 16-11-16.
@@ -12,7 +12,7 @@ import DAO.GroupeDAO;
 
 public class TestDaoGroupe {
     public static void main(String[] args) {
-        GroupeDAO groupeDAO = new GroupeDAO();
+        groupeDAO groupeDAO = new groupeDAO();
         ArrayList<Groupe> al;
         al = groupeDAO.readAll();
         for (Groupe g : al){

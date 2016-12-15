@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">AndroidProject</string>
     <string name="titleCreateGroupe">New group</string>
     <string name="labelNouvGroupe">Name of the group</string>
     <string name="btnCreaGroupe">Create a group</string>
@@ -28,5 +29,10 @@
     <string name="title_activity_main_panel">Accueil</string>
 
     <string name="labelInvite">Invite member</string>
+
+    <string name="titleCreateActivite">Activity Creation</string>
+    <string name="labelTitre">Title</string>
+    <string name="labelDescription">Description</string>
+    <string name="labelDateAct">Date Activity</string>
 
 </resources>
