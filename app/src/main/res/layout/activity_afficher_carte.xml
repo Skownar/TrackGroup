@@ -11,7 +11,7 @@
         android:name="com.google.android.gms.maps.MapFragment"/>
 
     <Button
-        android:text="Lancer alerte"
+        android:text="@string/lancer_alerte"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/button" />

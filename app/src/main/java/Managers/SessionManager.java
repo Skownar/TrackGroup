@@ -68,6 +68,9 @@ public class SessionManager {
         return prefs.getInt(KEY_ID_MEMBRE,0);
     }
 
+    public int getKeyIdGroupeChoisi(){
+        return Integer.parseInt(prefs.getString(KEY_GROUPE_CHOISI,null));
+    }
     public String getKeyPseudo(){return prefs.getString(KEY_PSEUDO,null);}
     // TODO verifier que comme la localisation et le groupe choisi n'est pas défini à la connexion, qu'il ne faut pas rappeler cette méthode une fois ces deux parametres défini
     public HashMap<String,String> getInformations(){

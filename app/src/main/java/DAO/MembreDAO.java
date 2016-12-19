@@ -4,7 +4,10 @@ import Metier.Membre;
 
 import com.sun.jersey.api.client.ClientResponse;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.core.MultivaluedMap;
 
@@ -26,7 +29,7 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
             String listeJson = service.path("gestionMembre").path("membreinfo/").get(String.class);
             listeMembre = gson.fromJson(listeJson, ListeMembre.class);
         } catch (Exception e) {
-            System.err.println(e);
+            e.printStackTrace();
             listeMembre = null;
         }
         return listeMembre.getItems();
@@ -74,23 +77,60 @@ public class MembreDAO extends BaseDAO implements DAO<Membre> {
     public boolean update(Membre membre) {
         System.out.println("--- Update member method ---");
         json = "";
-        try{
+        try {
             json = gson.toJson(membre);
             System.out.println("Object to json = " + json);
 
             System.out.println("test debug ");
-            response = service.path("gestionMembre").path("updateGroupeMembre/").type("application/json").put(ClientResponse.class,json);
+            response = service.path("gestionMembre").path("updateGroupeMembre/").type("application/json").put(ClientResponse.class, json);
 
             int status = response.getStatus();
-            System.out.println("Statut : "+status);
+            System.out.println("Statut : " + status);
             return true;
-        }catch (Exception e){
-            System.err.println("convertion json failed "+ e);
+        } catch (Exception e) {
+            System.err.println("convertion json failed " + e);
             return false;
         }
 
 
-
         //return true;
     }
+
+    public List<Membre> readMembreForSearch(int id_groupe) throws JSONException {
+
+        String uriformat = "getMembreInvit-"+id_groupe;
+        System.out.println(uriformat);
+        ListeMembre lm = new ListeMembre();
+        System.out.println("READMEMBREFORSEARCH");
+
+        try {
+            String jsonString = service.path("gestionMembre/").path(uriformat).get(String.class);
+            System.out.println(jsonString);
+            lm = gson.fromJson(jsonString, ListeMembre.class);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            lm.setItems(null);
+        }
+         return lm.getItems();
+    }
+
+    public List<Membre> readMembreForSearchPlusName(int id_groupe,String concat) throws JSONException {
+
+        String uriformat = "getMembreInvitPlusName-"+id_groupe+"-"+concat.toLowerCase();
+        System.out.println(uriformat);
+        ListeMembre lm = new ListeMembre();
+
+        try {
+            String jsonString = service.path("gestionMembre/").path(uriformat).get(String.class);
+            System.out.println(jsonString);
+            lm = gson.fromJson(jsonString, ListeMembre.class);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            lm.setItems(null);
+        }
+        return lm.getItems();
+    }
+
 }

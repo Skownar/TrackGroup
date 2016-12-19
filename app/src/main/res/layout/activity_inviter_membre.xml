@@ -11,33 +11,31 @@
     tools:context="com.example.leila.androidproject.InviterMembre">
 
     <TextView
-        android:text="@string/labelInvite"
+        android:text="Entrez nom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="30dp"
-        android:textSize="20dp"
-        android:id="@+id/labelInvite" />
+        android:id="@+id/textView2" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/labelInvite"
-        android:layout_alignLeft="@+id/labelInvite"
-        android:layout_alignStart="@+id/labelInvite"
-        android:layout_marginTop="12dp"
-        android:id="@+id/inputNomMembreInvite" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp"
+        android:id="@+id/editTextDesti" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/inputNomMembreInvite"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/listeMembresInvit"/>
+        android:layout_below="@+id/editTextDesti"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/listViewInviteMembre" />
 </RelativeLayout>
